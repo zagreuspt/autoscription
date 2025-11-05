@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<page size="A4"/>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{date}} Autoscription</title>
+</head>
+<body>
+	<div class="fixed-logo">
+        <img src="{{ logo_src }}" alt="Logo" />
+    </div>
+    <header class="header">
+        <p>Autoscription - Powered by Materia Technica</p>
+    </header>
+	<h1>ΑΠΟΤΕΛΕΣΜΑΤΑ ΕΛΕΓΧΟΥ</h1>
+		<h5> {{date}} </h5>
+	<hr class="section-divider">
+	{% if config_show_overview %}
+	    <div class="three-segments">
+    		<div class="segment">
+			<div class="value">
+				Έγγραφα <br>
+			</div>
+			<div class="value1">
+				{{scanned_docs}}
+			</div>
+		</div>
+		<div class="segment">
+			<div class="value">
+				Σύνολο συνταγών <br>
+			</div>
+			<div class="value1">
+				{{prescriptions_full_idika}}
+			</div>
+		</div>
+		<div class="segment">
+			<div class="value">
+				Σύνολο <br>
+			</div>
+			<div class="value1">
+				{{total_revenue}}
+			</div>
+		</div>
+	</div>
+	<div class="three-segments">
+		<div class="segment">
+			<div class="value">
+				Συνολικό πληρωτέο ποσό<br>
+			</div>
+            <div class="value1">
+                {{total_gov_contribution}}
+            </div>
+		</div>
+		<div class="segment">
+			<div class="value">
+				Πληρωτέο ποσό <br> ΕΟΠΥΥ<br>
+			</div>
+            <div class="value1">
+                {{total_eopyy_amount}}
+            </div>
+		</div>
+		<div class="segment">
+			<div class="value">
+				Πληρωτέο ποσό <br> άλλων ταμείων<br>
+			</div>
+            <div class="value1">
+                {{total_other_funds_amount}}
+            </div>
+		</div>
+	</div>
+    <div class="three-segments">
+		<div class="segment">
+			<div class="value">
+				Διαφορά συνολικού πληρωτέου ποσού*<br>
+			</div>
+            {% if total_missing_insurance_amount_value > 0 %}
+			<div class="value1" style="color: red">
+				{{total_missing_insurance_amount}}
+			</div>
+            {% else %}
+            <div class="value1">
+                {{total_missing_insurance_amount}}
+            </div>
+            {% endif %}
+		</div>
+		<div class="segment">
+			<div class="value">
+				Διαφορά πληρωτέου <br> ποσού <br> ΕΟΠΥΥ* <br>
+			</div>
+            {% if total_missing_eopyy_amount_value > 0 %}
+			<div class="value1" style="color: red">
+				{{total_missing_eopyy_amount}}
+			</div>
+            {% else %}
+            <div class="value1">
+                {{total_missing_eopyy_amount}}
+            </div>
+            {% endif %}
+		</div>
+		<div class="segment">
+			<div class="value">
+				Διαφορά πληρωτέου ποσού <br> άλλων ταμείων* <br>
+			</div>
+            {% if total_missing_other_funds_amount_value > 0 %}
+			<div class="value1" style="color: red">
+				{{total_missing_other_funds_amount}}
+			</div>
+            {% else %}
+            <div class="value1">
+                {{total_missing_other_funds_amount}}
+            </div>
+            {% endif %}
+		</div>
+	</div>
+
+
+    <div class="three-segments">
+        <h6 style="margin-bottom: 0; margin-top: 0; padding-bottom: 0; padding-top: 0;">* Ως διαφορά επισημαίνεται το άθροισμα του πληρωτέου ποσού των συνταγών που δεν βρίσκονται στο πακέτο των
+            σαρωμένων συνταγών (Πίνακας: Απούσες συνταγές φαρμακοποιού)</h6>
+    </div>
+	<hr class="section-divider">
+	<div class="three-segments">
+		<div class="segment1">
+			<div class="value">
+				Δικαιούχοι περίθαλψης <br>του Ε.Ο.Π.Υ.Υ. <br><h7>[Κωδικός 1]</h7>
+			</div>
+			<div class="value1">
+				{{prescriptions_full_idika_cat1}}
+			</div>
+		</div>
+		<div class="segment1">
+			<div class="value">
+				Εμβόλια<br>ΕΠΕ<br> <h7>[Κωδικός 2]</h7> <br>
+			</div>
+			<div class="value1">
+				{{category_2_pres}}
+			</div>
+		</div>
+		<div class="segment1">
+			<div class="value">
+				Λιμενικό σώμα – Ακτοφυλακή <br> <h7>[Κωδικός 3]</h7>
+			</div>
+			<div class="value1">
+				{{category_3_pres}}
+			</div>
+		</div>
+
+	</div>
+	<div class="three-segments">
+		<div class="segment1">
+			<div class="value">
+				Ευρωπαίοι <br> Ασφαλισμένοι<br> <h7>[Κωδικός 4]</h7>
+			</div>
+			<div class="value1">
+				{{category_4_pres}}
+			</div>
+		</div>
+		<div class="segment1">
+			<div class="value">
+				Άλλα <br> Ταμεία <br> <h7>[Εκτός Kωδικών 1-4]</h7>
+			</div>
+			<div class="value1">
+				{{category_8_pres}}
+			</div>
+		</div>
+		{% if vaccines_pres.empty %}
+		{% else %}
+		<div class="segment1">
+			<div class="value">
+				Διενέργεια <br> Εμβολιασμού <br> <h7>[Συνταγή Φαρμακοποιού]</h7>
+			</div>
+			<div class="value1">
+				{{vaccines_pres}}
+			</div>
+		</div>
+		{% endif %}
+	</div>
+	<hr class="section-divider">
+	<div class="group-together page-break-before">
+		<h3>Top 5 ιατροί (αριθμός συνταγών)</h3>
+		{{daily_analytics.to_html(index=False)}}
+	</div>
+	<hr class="section-divider">
+    {% endif %}
+	<div class="group-together">
+		{% if missing_pharm_prescriptions.empty %}
+		{% else %}
+			<h3>Απούσες συνταγές φαρμακοποιού</h3>
+
+			{% if missing_pharm_prescriptions.empty %}
+			{% else %}
+				<h4>Απούσες συνταγές φαρμακοποιού (βρέθηκαν στην ΗΔΙΚΑ)</h4>
+				<h6>*Παρακαλώ επιβεβαιώστε ότι δεν εμφανίζονται  στον πίνακα με τα μη αναγνωρισμένα barcode.</h6>
+				{{missing_pharm_prescriptions.to_html(index=False, escape=False)}}
+			{% endif %}
+
+			{% if missing_pharm_presciptions_existing_doc.empty %}
+			{% else %}
+				<h4>Ενω βρέθηκαν και οι αντίστοιχες ιατρού</h4>
+				{{missing_pharm_presciptions_existing_doc.to_html(index=False, escape=False)}}
+			{% endif %}
+			<hr class="section-divider">
+		{% endif %}
+		{% if missing_pharm_prescriptions_ekaa_check %}
+			<h6 style="color: red;">** Παρακαλώ βεβαιωθείτε ότι συμπεριλάβατε φωτοτυπία της κάρτας Ε.Κ.Α.Α.</h6>
+		{% endif %}
+	</div>
+	<div class="group-together">
+		{% if pharmacist_missing_pages.empty %}
+		{% else %}
+			<h3>Απούσες σελίδες συνταγής φαρμακοποιού</h3>
+			{{pharmacist_missing_pages.to_html(index=False, escape=False)}}
+			<hr class="section-divider">
+		{% endif %}
+	</div>
+
+	<div class="group-together">
+		{% if missing_doctor_prescriptions.empty %}
+		{% else %}
+			<h3>Απούσες συνταγές ιατρού</h3>
+			{% if missing_doctor_prescriptions.empty %}
+			{% else %}
+				<h4>Απούσες συνταγές ιατρού (βρέθηκαν στην ΗΔΙΚΑ για {{date}})</h4>
+				<h6>*Παρακαλώ επιβεβαιώστε ότι δεν εμφανίζονται στον πίνακα με τα μη αναγνωρισμένα barcode.</h6>
+				{{missing_doctor_prescriptions.to_html(index=False, escape=False)}}
+			{% endif %}
+			{% if missing_doc_prescriptions_existing_pharm.empty %}
+			{% else %}
+				<h4>Ενώ βρέθηκαν οι αντίστοιχες φαρμακοποιού στα έγγραφα:</h4>
+				{{missing_doc_prescriptions_existing_pharm.to_html(index=False, escape=False)}}
+			{% endif %}
+			<hr class="section-divider">
+		{% endif %}
+	</div>
+
+	<div class="group-together">
+		{% if not_detected_barcodes.empty %}
+		{% else %}
+			<h3>Μη αναγνωρισμένα barcode στα έγγραφα</h3>
+			<h6>Εάν η αναγνώριση του barcode της συνταγής αποτύχει λόγω σημαντικής αλλοίωσης του εγγράφου θα παρουσιαστεί στους πίνακες "απουσίας" συνταγών όπως και στον παρακάτω πίνακα.<br>Ελέγξτε χειροκίνητα τις παρακάτω συνταγές.</h6>
+			{{not_detected_barcodes.to_html(index=False, escape=False)}}
+			<hr class="section-divider">
+		{% endif %}
+	</div>
+
+	<div class="group-together">
+			{% if remove_docs.empty %}
+			{% elif config_category_breakdown %}
+				<h3>Κατηγοριοποίηση Συνταγών</h3>
+				<div class="group-together">
+					{% if get_100_percent_documents_df.empty %}
+					{% else %}
+						<h4>100% συμμετοχή</h4>
+						<h6>Αφαιρέστε τις παρακάτω συνταγές από τα φυσικά έγγραφα καθώς δεν κατατίθενται στον ΕΟΠΥΥ.</h6>
+						{{get_100_percent_documents_df.to_html(index=False, escape=False)}}
+						<hr class="section-divider">
+					{% endif %}
+				</div>
+
+				<div class="group-together">
+					{% if get_category_2_df.empty %}
+					{% else %}
+						<h4>Εμβόλια</h4>
+						<h6>Αφαιρέστε τις παρακάτω συνταγές από τα φυσικά έγγραφα καθώς κατατίθενται ξεχωριστά.</h6>
+						{{get_category_2_df.to_html(index=False, escape=False)}}
+						<hr class="section-divider">
+					{% endif %}
+				</div>
+
+
+				<div class="group-together">
+					{% if get_other_documents_df.empty %}
+					{% else %}
+						<h4>Άλλα ταμεία</h4>
+						<h6>Αφαιρέστε τις παρακάτω συνταγές από τα φυσικά έγγραφα καθώς κατατίθενται ξεχωριστά.</h6>
+						{{get_other_documents_df.to_html(index=False, escape=False)}}
+						<hr class="section-divider">
+					{% endif %}
+				</div>
+			{% else %}
+				<h3>Κατηγοριοποίηση Συνταγών</h3>
+				<h6>Αφαιρέστε τις παρακάτω συνταγές από το πακέτο των φυσικών εγγράφων καθώς κατατίθενται ξεχωριστά.</h6>
+				{{remove_docs.to_html(index=False, escape=False)}}
+			{% endif %}
+			{% if remove_docs_ekaa_check %}
+				<h6 style="color: red;">** Παρακαλώ βεβαιωθείτε ότι συμπεριλάβατε φωτοτυπία της κάρτας Ε.Κ.Α.Α.</h6>
+			{% endif %}
+	</div>
+
+	<div class="group-together">
+		{% if dosage_check.empty %}
+		{% else %}
+			<h3>Επιβεβαίωση δοσολογίας</h3>
+			{{dosage_check.to_html(index=False, escape=False)}}
+			<hr class="section-divider">
+		{% endif %}
+	</div>
+
+	<div class="group-together">
+		{% if not_in_idika_scans_df.empty %}
+		{% else %}
+			<h3>Δεν υπάρχουν στην ΗΔΙΚΑ για την {{date}}</h3>
+			<h6>Τα παρακάτω έγγραφα δεν εμφανίζονται στο σύστημα ηλεκτρονικής συνταγογράφησης με τα παρακάτω barcodes. <br>
+			Παρακαλώ ελέγξετε τις παρακάτω συνταγές.</h6>
+			{{not_in_idika_scans_df.to_html(index=False, escape=False)}}
+			<hr class="section-divider">
+		{% endif %}
+	</div>
+
+	<div class="group-together">
+		{% if manual_check.empty %}
+		{% else %}
+			<h3>Λανθασμένες συνταγές κατά τον χειροκίνητο έλεγχο.</h3>
+			<h6>Τα παρακάτω έγγραφα χαρακτηρίστηκαν από τον χρήστη ως λανθασμένα. <br> Παρακαλώ διορθώστε τα φυσικά έγγραφα.</h6>
+			{{manual_check.to_html(index=False, escape=False)}}
+			<hr class="section-divider">
+		{% endif %}
+	</div>
+    <div class="group-together">
+        {% if not above_fyk_limit.empty %}
+		<h3>Φάρμακα Υψηλού Κόστους</h3>
+		<h6>Συνταγές που περιέχουν ΦΥΚ άνω του ορίου λιανικής τιμής για ιδιωτικά φαρμακεία ({{fyk_limit}})</h6>
+        {{above_fyk_limit.to_html(index=False, escape=False)}}
+        <hr class="section-divider">
+		{% endif %}
+    </div>
+    <div class="group-together">
+        {% if not no_specialty_doctors.empty %}
+		<h3>Ιατροί Άνευ Ειδικότητας</h3>
+		<h6>Συνταγές ιατρών άνευ ειδικότητας που περιέχουν ποσότητα μεγαλύτερη απο ένα εμβαλάγιο</h6>
+        {{no_specialty_doctors.to_html(index=False, escape=False)}}
+        <hr class="section-divider">
+		{% endif %}
+    </div>
+    <div class="group-together">
+        {% if not medical_report_prescriptions.empty %}
+		<h3>Γνωματεύσεις</h3>
+		<h6>Συνταγές τις οποίες ο ιατρός επέλεξε να τις συνοδέψει από γνωμάτευση σύμφωνα με την Η.ΔΙ.Κ.Α</h6>
+        {{medical_report_prescriptions.to_html(index=False, escape=False)}}
+        <hr class="section-divider">
+		{% endif %}
+    </div>
+    <div class="group-together">
+        {% if not desensitization_prescriptions.empty %}
+		<h3>Εμβόλια απευαισθητοποίησης</h3>
+		<h6>Συνταγές που περιέχουν εμβόλια απευαισθητοποίησης</h6>
+        {{desensitization_prescriptions.to_html(index=False, escape=False)}}
+        <hr class="section-divider">
+		{% endif %}
+    </div>
+    {% if config_execution_time_ordering == True %}
+	<div class="group-together">
+		{% if not execution_time_ordering_df.empty %}
+		<h3> Πίνακας ταξινόμησης συνταγών </h3>
+		<h6> Πίνακας ταξινομημένος με ώρα εκτέλεσης</h6>
+		<h6> Ελάχιστες αναγκαίες αλλαγές θέσης: {{min_moves}}</h6>
+		<table class="alt-table">
+			<tr>
+				<td style="width: 45%; vertical-align: top; border-bottom: 0 !important; padding: 0; margin: 0;border-bottom-left-radius:0 !important">
+					{{all_prescriptions_df_current_index.to_html(index=False, escape=False)}}
+				</td>
+				<td style="border-left: 2px solid #FEFEFC; padding: 0 0;">
+            	</td>
+				<td style="width: 55%; vertical-align: top; border-bottom: 0 !important; padding: 0; margin: 0;border-bottom-left-radius:0 !important">
+					{{all_prescriptions_df.to_html(index=False, escape=False)}}
+				</td>
+			</tr>
+		</table>
+		{% endif %}
+		{% if not injections_prescriptions_df.data.empty %}
+		<h3> Αναλυτική κατάσταση εμβολίων </h3>
+		<h6> Πίνακας ταξινομημένος με ώρα εκτέλεσης</h6>
+        {% if not injections_execution_time_ordering_df.empty %}
+		<h6> Ελάχιστες αναγκαίες αλλαγές θέσης: {{injections_min_moves}}</h6>
+        {% endif %}
+		<table class="alt-table">
+			<tr>
+				{% if not injections_execution_time_ordering_df.empty %}
+				<td style="width: 45%; vertical-align: top; border-bottom: 0 !important; padding: 0; margin: 0;border-bottom-left-radius:0 !important">
+					{{injections_prescriptions_df_current_index.to_html(index=False, escape=False)}}
+				</td>
+				{% endif %}
+				<td style="border-left: 2px solid #FEFEFC; padding: 0 0;">
+            	</td>
+				<td style="width: 55%; vertical-align: top; border-bottom: 0 !important; padding: 0; margin: 0;border-bottom-left-radius:0 !important">
+					{{injections_prescriptions_df.to_html(index=False, escape=False)}}
+				</td>
+			</tr>
+		</table>
+		{% endif %}
+    </div>
+    {% endif %}
+
+
+    <div class="group-together page-break-before">
+        {% if not prescriptions_amount.empty %}
+        <h3> Αναλυτική κατάσταση συνταγών </h3>
+		<h6> Πίνακας ταξινομημένος με ώρα εκτέλεσης</h6>
+        {{prescriptions_amount.to_html(index=False, escape=False, classes='prescriptions-amount-table alt-table')}}
+		{% endif %}
+    </div>
+
+	<div class="footer">
+		<p>Powered by Materia Technica | {{date}}</p>
+	</div>
+</body>
+</html>

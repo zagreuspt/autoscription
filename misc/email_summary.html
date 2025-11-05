@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 style="color: #002537;">Software Run Summary</h2>
+
+<style>
+  table {
+    border-collapse: collapse;
+    width: 50%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    font-family: Arial, sans-serif;
+  }
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #2A9DB0;
+    color: #FEFEFC;
+    text-transform: uppercase;
+  }
+
+  td {
+    background-color: #E1F3F4;
+    color: #002537;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #FEFEFC;
+  }
+</style>
+
+<table>
+  <tr>
+    <th>Metric</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Total days run in current month</td>
+    <td>{{total_days_run}}</td>
+  </tr>
+  <tr>
+    <td>Longest streak of daily use (days)</td>
+    <td>{{longest_streak}}</td>
+  </tr>
+  <tr>
+    <td>Longest gap without use (days)</td>
+    <td>{{longest_gap}}</td>
+  </tr>
+  <tr>
+    <td>Percentage of days run in current month</td>
+    <td>{{percentage_run}}%</td>
+  </tr>
+  <tr>
+    <td>Average runs per day</td>
+    <td>{{average_runs}}</td>
+  </tr>
+  <tr>
+    <td>Number of missed days</td>
+    <td>{{missed_days}}</td>
+  </tr>
+</table>
+
+</body>
+</html>

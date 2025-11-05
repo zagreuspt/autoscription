@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  backend-mock:
+    image: wiremock/wiremock:2.32.0
+    container_name: backend-mock
+    command: "--global-response-templating --verbose"
+    volumes:
+      - ./local-setup:/home/wiremock
+    ports:
+      - "8383:8080"

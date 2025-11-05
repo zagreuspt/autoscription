@@ -1,0 +1,26 @@
+default_stages: [commit, push]
+default_language_version:
+  python: python3.8
+fail_fast: true
+repos:
+  - repo: local
+    hooks:
+      - id: Format
+        name: Format
+        entry: tox -e format
+        language: system
+        pass_filenames: false
+  - repo: local
+    hooks:
+      - id: Lint
+        name: Lint
+        entry: tox -e lint
+        language: system
+        pass_filenames: false
+  - repo: local
+    hooks:
+      - id: Type Checking
+        name: Type Checking
+        entry: tox -e type
+        language: system
+        pass_filenames: false

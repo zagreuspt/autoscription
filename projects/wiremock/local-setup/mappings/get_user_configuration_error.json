@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/user_configuration_error"
+  },
+  "response": {
+    "status": 500,
+    "jsonBody": {
+      "value": "error"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

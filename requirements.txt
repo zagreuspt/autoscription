@@ -1,0 +1,44 @@
+azure-monitor-opentelemetry==1.0.0b13
+azure-storage-blob==12.16.0
+craft_hw_ocr==1.1
+craft_text_detector==0.4.1
+cryptography==40.0.2
+cython==0.29.34
+diskcache==5.6.1
+easyocr==1.6.2
+Jinja2==3.1.2
+lxml==4.9.2
+matplotlib==3.6.2
+numpy==1.21.6 # required for signature detection > text removal
+opencv_python==4.5.5.64 # version 4.6.0.66 is not working  easyocr 1.6.1 requires 4.5.5.60, do not use headless
+# probable memory leak associated with the above version https://github.com/opencv/opencv/issues/23633
+openpyxl==3.0.10
+pandas==1.5.2
+pdfplumber==0.5.28
+Pillow==8.2.0 # needed for stamp detection
+pyarrow==13.0.0
+pyinstaller~=5.9.0
+PyPDF2==3.0.1
+pytwain~=2.0
+pyzbar==0.1.9
+pyyaml==5.4.1
+scikit_image==0.19.3
+schema==0.7.5
+selenium==4.11.2
+selenium_page_factory==2.5
+signature_detect==0.1.4
+stamp_processing==0.0.3 # requires with pillow 8.2.0
+stickytape==0.2.1
+tkcalendar==1.6.1
+torch==1.8.1
+torchvision==0.9.1
+ttkthemes~=3.2.2
+weasyprint~=56.1 # compatible with pillow 8.2.0
+ipython==8.12.0
+tinyaes==1.0.4
+azure-identity==1.13.0
+xmltodict==0.13.0
+python-certifi-win32==1.6.1
+fastparquet==2023.10.1
+dataclass-mapper==1.9.2
+xsdata==24.1

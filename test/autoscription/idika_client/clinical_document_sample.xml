@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:epsos="urn:epsos-org:ep:medication" xmlns="urn:hl7-org:v3">
+    <realmCode code="US" />
+    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3" />
+    <templateId root="2.16.840.1.113883.10.20.22.1.1" />
+    <!-- Μοναδικό χαρακτηριστικό για το EpsosEPrescription για τις αντλήσεις -->
+    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.1.1" />
+    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.1" />
+    <!-- Το barcode της Συνταγής -->
+    <id extension="1111111111111" root="1.21" />
+    <code code="57833-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="ePrescription" />
+    <title>Greek ePrescription</title>
+    <effectiveTime xsi:type="IVL_TS">
+        <!-- Ημερομηνία Έκδοσης -->
+        <low value="20150120" />
+        <!-- Ημερομηνία Πρoθεσμίας Εκτέλεσης/Ακύρωσης/ Εκτέλεσης, εξαρτάται από το status -->
+        <high value="20150130" />
+    </effectiveTime>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" displayName="normalno" />
+    <languageCode code="el" />
+    <!-- Πληροφορίες Ασθενή -->
+    <recordTarget contextControlCode="OP" typeCode="RCT">
+        <patientRole>
+            <!-- ΑΜΚΑ Ασθενή -->
+            <id extension="99999999999" root="1.10.1" />
+            <!-- Id Ασφαλιστικού Φορέα με βάση το οποίο έγινε η συνταγογράφηση -->
+            <id extension="4" root="1.10.30.1" />
+            <!-- Όνομα Ασφαλιστικού Φορέα με βάση το οποίο έγινε η συνταγογράφηση -->
+            <id extension="Ο.Α.Ε.Ε." root="1.10.30.2" />
+            <!-- ΑΜΑ με βάση το οποίο έγινε η συνταγογράφηση -->
+            <id extension="999999" root="1.10.2" />
+            <!-- Τύπος ασφαλισμένου με βάση το οποίο έγινε η συνταγογράφηση -->
+            <id extension="Άμεσος" root="1.20.1" />
+            <!-- Ημερομηνία Τελευταίας Ενημέρωσης Ασφαλιστικού φορέα -->
+            <id extension="20150316" root="1.30.1" />
+            <!-- Ημερομηνία Λήξης Ασφαλιστικής Ικανότητας -->
+            <id extension="20160229" root="1.30.2" />
+            <!-- Ένδειξη ότι ο ασθενής έχει δηλώσει να λαμβάνει ηλεκτρονικά τις συνταγές του -->
+            <id extension="1" root="1.40.1" />
+			<!-- Διεύθυνση -->
+            <addr>
+                <streetAddressLine>ΔΙΕΥΘΥΝΣΗ</streetAddressLine>
+                <city>ΑΘΗΝΑ</city>
+                <postalCode>12345</postalCode>
+                <country>GREECE</country>
+            </addr>
+            <!-- Τηλέφωνο -->
+            <telecom use="MC" value="tel:+2222222222" />
+            <!-- email -->
+            <telecom use="HP" value="mailto:test_patient@alon.com" />
+            <patient>
+                <!-- Όνομα / Επίθετο-->
+                <name>
+                    <given>ONOMA</given>
+                    <family>EPONYMO</family>
+                </name>
+                <!-- Φύλο: F για Γυναίκα, Μ για Άνδρας -->
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female" />
+                <!-- Ημερομηνία Γέννησης: "DDMMYYHHmm" -->
+                <birthTime value="19650101" />
+                <raceCode nullFlavor="NA" />
+                <ethnicGroupCode nullFlavor="NA" />
+                <languageCommunication>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.1" />
+                    <languageCode code="el-GR" />
+                </languageCommunication>
+            </patient>
+        </patientRole>
+    </recordTarget>
+    <!-- Πληροφορίες Γιατρού -->
+    <author>
+        <functionCode code="221" codeSystem="2.16.840.1.113883.2.9.6.2.7" codeSystemName="ISCO" displayName="Medical Doctors" />
+        <time value="20150120" />
+        <assignedAuthor>
+            <id root="2.16.840.1.113883.4.6" />
+            <!-- Id Γιατρού -->
+            <id extension="99999" root="1.18" />
+            <!-- ΑΜΚΑ Γιατρού -->
+            <id extension="99999999999" root="1.19" />
+            <!-- Id Ειδικότητας Ιατρού -->
+            <id extension="20" root="1.19.1" />
+            <!-- Ονομασία Ειδικότητας Ιατρού -->
+            <id extension="ΨΥΧΙΑΤΡΟΣ" root="1.19.2" />
+            <!-- ETAA Γιατρού -->
+            <id extension="999999" root="1.20" />
+            <!-- Τηλέφωνο -->
+            <telecom use="MC" value="tel:+1234567896" />
+            <!-- email -->
+            <telecom use="HP" value="mailto:testdoc@localhost.com" />
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <!-- Όνομα / Eπίθετο -->
+                <name>
+                    <given>Όνομα</given>
+                    <family>Επώνυμο</family>
+                </name>
+            </assignedPerson>
+            <!-- Στοιχεία Μονάδας Συνταφογράφησης -->
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id nullFlavor="NI" />
+                <name nullFlavor="NI" />
+                <telecom nullFlavor="NI" />
+                <addr>
+                    <country>GR</country>
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <custodian typeCode="CST">
+        <assignedCustodian classCode="ASSIGNED">
+            <!-- Ιατρικός Σύλλογος -->
+            <representedCustodianOrganization>
+                <id extension="1" root="0.0.0.0" />
+                <name>ΑΘΗΝΩΝ</name>
+                <telecom use="MC" value="tel:+2103816404" />
+                <addr>
+                    <streetAddressLine>Θεμιστοκλέους 34</streetAddressLine>
+                    <city>ΑΘΗΝΑ</city>
+                    <postalCode>10678</postalCode>
+                    <country>GREECE</country>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <!-- Στοιχεία Γιατρού που Συνταγογράφησε την συνταγή -->
+    <legalAuthenticator>
+        <time value="20150331" />
+        <signatureCode code="S" />
+        <assignedEntity>
+            <!-- Id Γιατρού -->
+            <id extension="99999" root="1.18" />
+            <!-- Τηλέφωνο -->
+            <telecom use="MC" value="tel:+1234567896" />
+            <!-- email -->
+            <telecom use="HP" value="mailto:testdoc@localhost.com" />
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name>
+                    <given>Όνομα</given>
+                    <family>Επώνυμο</family>
+                </name>
+            </assignedPerson>
+            <!-- Ιατρικός Σύλλογος -->
+            <representedOrganization classCode="ORG">
+                <id nullFlavor="NI" />
+                <name nullFlavor="NI" />
+                <addr>
+                    <country>GR</country>
+                </addr>
+            </representedOrganization>
+        </assignedEntity>
+    </legalAuthenticator>
+    <!-- Βασικές Πληροφορίες Συνταγής -->
+    <componentOf>
+        <encompassingEncounter>
+            <!-- Id Επίσκεψης -->
+            <id extension="14891" root="1.80" />
+            <!-- Ιd Μονάδας Συνταγογράφησης-->
+            <id extension="1000" root="1.80.1" />
+            <!-- Id Ασφαλιστικού Φορέα -->
+            <id extension="4" root="1.80.2" />
+            <!-- Σχόλια επίσκεψης -->
+            <id extension="Σχόλια " root="1.80.3" />
+            <!-- Λόγος επίσκεψης -->
+            <id extension="Λόγος" root="1.80.3.1" />
+            <!-- Υπολογίζεται στο όριο η επίσκεψη ή όχι -->
+            <id extension="0" root="1.80.4" />
+            <!-- Κατάσταση επίσκεψης -->
+            <!-- H "Συνταγογραφημένη" έχει code "new" |  H "Ολοκληρωμένη" έχει code "completed"-->
+            <!-- H "Επανενεργοποιημένη" έχει code "active" |  H "Ακυρωμένη" έχει code "cancelled"-->
+            <code code="completed" />
+            <effectiveTime>
+                <!-- Έναρξη επίσκεψης -->
+                <low value="20150116164005" />
+                <!-- Κλεισιμο Επίσκεψης / Ακύρωση Επίσκεψης -->
+                <high value="20150121213202" />
+            </effectiveTime>
+        </encompassingEncounter>
+    </componentOf>
+    <!-- Πληροφορίες Συνταγής -->
+    <component>
+        <structuredBody>
+            <!-- Συνταγή -->
+            <component>
+                <section>
+                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.2.1" />
+                    <!-- Το barcode της Συνταγής -->
+                    <id extension="1111111111111" root="1.21" />
+                    <code code="57828-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Prescriptions" />
+                    <!-- Τίτλος Συνταγής -->
+                    <title>Συνταγή</title>
+                    <text>
+                        <sociInfoHNDGS>Οι συνταγές ασφαλισμένων του Υπουργείου Εθνικής Άμυνας εκτελούνται επί πιστώσει σε φαρμακεία στρατιωτικών νοσοκομείων, κρατικών νοσοκομείων  καθώς και σε συμβεβλημένα  με το ΥΠ.ΕΘ.Α. ιδιωτικά φαρμακεία. Στα λοιπά, μη συμβεβλημένα ιδιωτικά φαρμακεία η δαπάνη φαρμάκων καταβάλλεται από τον ασφαλισμένο ο οποίος αιτείται στη συνέχεια  αποζημίωση  από το ΥΠ.ΕΘ.Α.
+H συνταγογράφηση των άμεσα ασφαλισμένων του ΥΠ.ΕΘ.Α. διενεργείται από ιατρούς στρατιωτικής μονάδας, στρατιωτικού νοσοκομείου  ή σε τμήμα επειγόντων περιστατικών κρατικού νοσοκομείου. Σε κάθε άλλη περίπτωση συνταγογράφηση διενεργείται μόνο κατόπιν βεβαίωσης/παραπομπής από ιατρό στρατιωτικής μονάδας. Η συνταγογράφηση στα έμμεσα μέλη ασφαλισμένων  του ΥΠ.ΕΘ.Α. καθώς και η συνταγογράφηση  από οδοντίατρους και γυναικολόγους εξαιρείται από τον παραπάνω κανόνα
+</sociInfoHNDGS>
+                        <list>
+                            <!-- Λίστα με αναφορές -->
+                            <item ID="med_barcode_1">2802578001025</item>
+                            <item ID="med_notes_1">med_notes</item>
+                            <item ID="prescription_notes">prescription_notes</item>
+                        </list>
+                    </text>
+                    <entry>
+                        <act classCode="INFRM" moodCode="EVN">
+                            <!-- Id Συνταγής -->
+                            <id extension="108999666" root="1.22" />
+                            <!-- Τύπος Συνταγής 1:Τυπική | 2:Ελεύθερη -->
+                            <id extension="1" root="1.1.3" />
+                            <!-- Έπαναληψιμότητα Συνταγής, 1:Απλή | 3: 3μηνη | 4: 4μηνη | 5: 5μηνη | 6: 6μηνη -->
+                            <id extension="4" root="1.1.4" />
+                            <!-- Σε περίπτωση Έπαναληψιμότητας Συνταγής ποια είναι η σειρά της συνταγής αυτής 1, 2, 3, 4, 5, 6-->
+                            <id extension="2" root="1.1.4.1" />
+                            <!-- Βarcode πρώτης (αρχικής) συνταγής σε περίπτωση Έπαναληψιμότητας Συνταγής -->
+                            <id extension="1111111111112" root="1.1.4.2" />
+                            <!-- Ημερομηνία Έναρξης Ισχύος για Συνταγή που Επαναλαμβάνεται (π.χ. η 2η στη σειρά Συνταγή από μια Τρίμηνη Συνταγή)  -->
+                            <id extension="20150625" root="1.1.4.3" />
+                            <!-- Η Περίοδος Επανάληψης σε περίπτωση Επαναλαμβανόμενης Συνταγής 1: 30 ημέρες | 2: 28 ημέρες | 3: 60 ημέρες-->
+                            <id extension="1" root="1.1.4.4" />
+                            <!-- Συνταγογραφημένη με βάση εμπορική ονομασία φαρμάκου -->
+                            <id root="1.1.3.1" extension="1" />
+                            <!-- Id λόγου συνταγογράφησης με βάση την εμπορική ονομασία -->
+                            <id root="1.1.3.2" extension="5" />
+                            <!-- Id σχολίων του λόγου συνταγογράφησης με βάση την εμπορική ονομασία -->
+                            <id root="1.1.3.3" extension="Σχόλια" />
+                            <!-- Ιd περίπτωσης μηδενικής συμμετοχής -->
+                            <id extension="0" root="1.1.6" />
+                            <!-- Γνωμάτευση, 1:Ναι | 0:Όχι -->
+                            <id extension="1" root="1.1.23" />
+                            <!-- ΑΜΚΑ Ιατρού Γνωμάτευσης -->
+                            <id extension="21035803852" root="1.1.23.1" />
+                            <!-- Ημερομηνία Γνωμάτευσης -->
+                            <id extension="20161010" root="1.1.23.2" />
+                            <!-- Id Ειδικότητας Ιατρού Γνωμάτευσης -->
+                            <id extension="15" root="1.1.23.3" />
+                            <!-- Ονομασία Ειδικότητας Ιατρού Γνωμάτευσης -->
+                            <id extension="ΠΑΙΔΙΑΤΡΟΣ" root="1.1.23.4" />
+                            <!-- Ονοματεπώνυμο Ιατρού Γνωμάτευσης -->
+                            <id extension="ΟΝΟΜΑ ΕΠΩΝΥΜΟ" root="1.1.23.5" />
+                            <!-- Barcode Ηλεκτρονικής Γνωμάτευσης  -->
+                            <id extension="2312080027301" root="1.1.23.6"/>
+                            <!-- Μονοδοσιακό, 1:Ναι | 0:Όχι -->
+                            <id extension="1" root="1.4.11" />
+                            <!-- Φάρμακο υψηλού κόστους -->
+                            <id extension="0" root="1.1.7" />
+                            <!-- Φάρμακο με ηπαρίνη -->
+                            <id extension="0" root="1.1.30" />
+                            <!-- Φάρμακο εισαγωγής ΙΦΕΤ -->
+                            <id extension="0" root="1.1.34" />
+                            <!-- Εμβόλιο Απευαισθητοποίησης  -->
+                            <id extension="0" root="1.1.8" />
+                            <!-- Εκτελείται μόνο από φαρμακείο του ΕΟΠΥΥ -->
+                            <id extension="0" root="1.1.9" />
+                            <!--  Εκτέλεση συνταγών ορισμένης κατηγορίας μόνο από ειδικά φαρμακεία και υπό προυποθέσεις -->
+                            <!--  Το φαρμακείο είναι νοσοκομειακό ή ΕΟΠΥΥ και η συνταγή δεν είναι εκτελεσμένη ή ακυρωμένη -->
+                            <id extension="0" root="1.1.10" />
+                            <!-- Περιέχει ναρκωτική ουσία -->
+                            <id extension="0" root="1.1.11" />
+                            <!-- Kατηγορία ναρκωτικών συνταγής -->
+                            <id extension="1" root="1.1.11.1" />
+                            <!-- Kαταχωρείται μόνο από Νοσοκομεία  -->
+                            <id extension="0" root="1.1.12" />
+                            <!--  Ειδικό Αντιβιοτικό -->
+                            <id extension="0" root="1.1.13" />
+                            <!-- Σύμφωνα με το Nόμο 3816-->
+                            <id extension="0" root="1.1.14" />
+                            <!--  Ι.Φ.Ε.Τ. -->
+                            <id extension="0" root="1.1.15" />
+                            <!-- Απαιτείται προέγκριση Ε.Ο.Π.Υ.Υ. μέσω επιτροπής -->
+                            <id extension="0" root="1.1.16" />
+                            <!-- Εκτός Φαρμακευτικής Δαπάνης ΕΟΠΥΥ -->
+                            <id extension="0" root="1.1.17" />
+                            <!--  Περίπτωση εκτέλεσης -->
+                            <id extension="0" root="1.1.18" />
+                            <!--  Πλήθος εκτελέσεων συνταγής -->
+                            <id extension="1" root="1.1.19" />
+							<!--  Οι ενεργές συνταγές-->
+							<id extension="[1, 2]" root="1.1.19.1"/>
+                            <!-- Ποσό συμμετοχής ασφαλιστικoύ φορέα του ασθενή για μηδενική συμμετοχή -->
+                            <id extension="0.0" root="1.1.2.1" />
+                            <!-- Ποσό συμμετοχής ασφαλιστικoύ φορέα του ασθενή για συμμετοχή με ποσοστό 10% -->
+                            <id extension="0.634" root="1.1.2.2" />
+                            <!-- Ποσό συμμετοχής ασφαλιστικoύ φορέα του ασθενή για συμμετοχή με ποσοστό  25%  -->
+                            <id extension="0.0" root="1.1.2.3" />
+                            <!-- Συνολικό ποσό συμμετοχής ασθενή -->
+                            <id extension="0.634" root="1.1.2.4" />
+                            <!-- Συνολικό Ποσό Τιμών Αναφοράς -->
+                            <id extension="14.73" root="1.1.2.4.1" />
+                            <!-- Συνολικό Ποσό διαφοράς Ασφαλιστικού Φορέα-->
+                            <id extension="0.75" root="1.2.1.4" />
+                            <!-- Συνολικό Ποσό διαφοράς -->
+                            <id extension="0.38" root="1.2.1.5" />
+                            <!-- Συνολικό Ποσό Διαφοράς Ασφαλισμένου -->
+                            <id extension="-0.37" root="1.2.1.6" />
+                            <!-- Συνολικό ποσό συμμετοχής Ασφαλιστικού Φορέα -->
+                            <id extension="5.706" root="1.1.2.5" />
+                            <!-- Ποσό συμμετοχής ασθενή για μηδενική συμμετοχή  -->
+                            <id extension="0.0" root="1.1.2.6" />
+                            <!-- Ποσό συμμετοχής ασθενή για συμμετοχή με ποσοστό 10%  -->
+                            <id extension="6.34" root="1.1.2.7" />
+                            <!-- Ποσό συμμετοχής ασθενή για συμμετοχή με ποσοστό 25%  -->
+                            <id extension="0.0" root="1.1.2.8" />
+                            <!-- Barcode χειρόγραφης συνταγής-->
+                            <id extension="1111111111119" root="1.1.20" />
+                            <!-- Δεν καλύπτεται από ασφαλιστικό ταμείο-->
+                            <id extension="0" root="1.1.21" />
+                            <!-- Επιβάρυνση από ασφαλιστικό ταμείο (Επιβάρυνση 1 Ευρώ) - Αν η συνταγή, στην άντληση προς εκτέλεση, θα επιβαρυνθεί ή όχι, 1:Ναι | 0:Όχι  -->
+                            <id extension="1" root="1.1.22.2" />
+                            <!-- Ποσό Επιβάρυνσης από ασφαλιστικό ταμείο (Επιβάρυνση 1 Ευρώ) -->
+                            <id extension="1.0" root="1.1.22" />
+                            <!-- Επιβάρυνση από ασφαλιστικό ταμείο (Επιβάρυνση 1 Ευρώ) - Αν η συνταγή, εφόσον έχει εκτελεστεί, έχει επιβαρυνθεί ή όχι, 1:Ναι | 0:Όχι  -->
+                            <id extension="1" root="1.1.22.1" />
+                            <!-- Ένδειξη συνταγής με εμβόλια | 0 : Η συνταγή περιέχει φάρμακα - 1 : Η συνταγή περιέχει εμβόλια -->
+                            <id extension="0" root="1.1.24" />
+                            <!-- Ένδειξη συνταγής που έχει δεσμευτεί ή όχι | 1 : Η συνταγή έχει δεσμευτεί - 0 : Η συνταγή δεν έχει δεσμευτεί -->
+                            <!-- Το παρακάτω στοιχείο εμφανίζεται μόνο σε συνταγή που περιέχει εμβόλια απευαισθητοποίησης -->
+                            <id extension="0" root="1.1.25" />
+                            <!-- Δικαιούχος ΕΚΑΣ, 1:Ναι | 0:Όχι -->
+                            <id extension="1" root="1.10.4" />
+                            <!-- Χρόνια Ασθένεια, 1:Ναι | 0:Όχι -->
+                            <id extension="0" root="1.10.9" />
+                            <!-- Μηνιαία Συνταγή, 1:Ναι | 0:Όχι -->
+                            <id extension="0" root="1.4.9" />
+                            <!-- Δίμηνη Συνταγή, 1:Ναι | 0:Όχι -->
+                            <id extension="0" root="1.4.10" />
+                            <id extension="0" root="1.4.10" />
+                            <!-- Ένδειξη απαλλαγής συμμετοχής ασφαλισμένου, 1:Ναι | 0:Όχι -->
+                            <id extension="1" root="1.1.26" />
+                            <!-- Λόγος απαλλαγής συμμετοχής ασφαλισμένου -->
+                            <id extension="λόγος απαλλαγής" root="1.1.26.1" />
+                            <!-- Ένδειξη ότι ασφαλιστικός φορέας καλύπτει συμπληρωματικά την συμμετοχή του ασφαλισμένου. 1:Ναι | 0:Όχι -->
+                            <id extension="1" root="1.1.27" />
+                            <!-- Το συνολικό ποσό συμπληρωματικής κάλυψης συμμετοχής ασφαλισμένου από τον ασφαλιστικό φορέα (ΤΕΑΠΑΣΑ) -->
+                            <id extension="2.0776" root="1.1.27.1" />
+                            <!-- Συνολικό ποσό διαφοράς που καλύπτεται από τον ΚΥΥΑΠ -->
+                            <id extension="0.0" root="1.1.27.2" />
+                            <!-- Ένδειξη αν η συνταγή έχει φάρμακα αρνητικής λίστας -->
+                            <id extension="1" root="1.1.28.1" />
+                            <!-- Περιέχει αντιβιοτικό φάρμακο -->
+                            <id extension="0" root="1.1.29" />
+                            <!-- Συνταγή με Αναλώσιμα - Για extension = 0 Η συνταγή περιέχει μόνο φάρμακα -->
+                            <id extension="0" root="1.8.1" />
+                            <!-- Id Επίσκεψης -->
+                            <id extension="14891" root="1.80" />
+                            <!--  Ένδειξη ότι η συνταγή είναι άυλη -->
+                            <id extension="1" root="1.5.10" />
+                             <!-- Η Συνταγή περιέχει φάρμακα κατ’ οίκον παράδοσης  -->
+                            <id extension="0" root="1.1.28"/>
+                            <!-- Πρόθεση/Επιθυμία ασθενούς για κατ’ οίκον παράδοση φαρμάκων,1:ναι| 0: όχι  -->
+                            <id extension="1" root="1.5.13"/>
+                            <code nullFlavor="NA" />
+                            <!-- Κατάσταση Συνταγής -->
+                            <!-- H "Συνταγογραφημένη" έχει code "new" |  H "Εκτελεσμένη" έχει code "completed"-->
+                            <!-- H "Μερικώς Εκτελεσμένη" έχει code "active" |  H "Ακυρωμένη" έχει code "cancelled"-->
+                            <statusCode code="active" />
+                            <effectiveTime>
+                                <!-- Ημερομηνία έκδοσης Συνταγής -->
+                                <low value="20150120" />
+                                <!-- Ημερομηνία Προθεσμίας Εκτέλεσης Συνταγής -->
+                                <high value="20150130" />
+                            </effectiveTime>
+                            <entryRelationship typeCode="SUBJ" inversionInd="true">
+                                <act classCode="ACT" moodCode="INT">
+                                    <templateId root="2.16.840.1.113883.10.20.1.43" />
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3.1" />
+                                    <code code="FINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
+                                    <!-- Σχόλια Συνταγής με αναφορά παραπάνω-->
+                                    <text>
+                                        <reference value="#prescription_notes" />
+                                    </text>
+                                    <statusCode code="completed" />
+                                </act>
+                            </entryRelationship>
+                            <!-- Διάγνωση 1 -->
+                            <entryRelationship typeCode="RSON">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="2.16.840.1.113883.10.20.1.28" />
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                                    <code code="282291009" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.23" codeSystemName="SNOMED-CT" displayName="Diagnosis interpretation" />
+                                    <!-- Το χειρόγραφο σχόλιο του γιατρού -->
+                                    <text>Λίθος χοληφόρου πόρου με χολοκυστίτιδα</text>
+                                    <statusCode code="completed" />
+                                    <value xsi:type="CD" code="K80.4" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.2" codeSystemName="ICD10" displayName="Λίθος χοληφόρου πόρου με χολοκυστίτιδα" />
+                                </observation>
+                            </entryRelationship>
+                        </act>
+                    </entry>
+                    <!-- Γραμμές Συνταγής -->
+                    <!-- Γραμμή Συνταγής 1 -->
+                    <entry>
+                        <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.2" />
+                        <substanceAdministration classCode="SBADM" moodCode="INT">
+                            <templateId root="2.16.840.1.113883.10.20.1.24" />
+                            <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.2" />
+                            <!-- Το barcode της γραμμής -->
+                            <id extension="21899392" root="1.21.1" />
+                            <!-- Το status της γραμμής συνταγής, completed: έχει εκτελεστεί όλη η ποσότητα, active: δεν έχει εκτελεστεί όλη η ποσότητα του φαρμάκου -->
+                            <statusCode code="active" />
+                            <!-- Έναρξη/Λήξη θεραπείας, Δεν χρησιμοποιείται προς το παρών. Πάντα UNK -->
+                            <effectiveTime xsi:type="IVL_TS">
+                                <low nullFlavor="UNK" />
+                                <high nullFlavor="UNK" />
+                            </effectiveTime>
+                            <!-- Συχνότητα Συνταγής -->
+                            <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                <period value="1" unit="d" />
+                            </effectiveTime>
+                            <!-- Ποσότητα δόσης -->
+                            <doseQuantity>
+                                <!-- unit: η Μονάδα Δόσης του Φαρμάκου, value: η ποσότητα δόσης του Φαρμάκου -->
+                                <low value="1" unit="ΟΦΘ.ΣΤΑΓΟΝΕΣ_ΔΟΣΕΙΣ" />
+                                <high value="1" unit="ΟΦΘ.ΣΤΑΓΟΝΕΣ_ΔΟΣΕΙΣ" />
+                            </doseQuantity>
+                            <!-- Διάρκεια λήψης του φαρμάκου -->
+                            <rateQuantity>
+                                <!-- Tα low και high δηλώνουν από/έως λήψης φαρμάκου, Προς το παρών είναι και τα δύο ίδια -->
+                                <low value="4" unit="d" />
+                                <high value="4" unit="d" />
+                            </rateQuantity>
+                            <!-- Πληροφορίες Φαρμάκου -->
+                            <consumable>
+                                <manufacturedProduct classCode="MANU">
+                                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.1" />
+                                    <templateId root="2.16.840.1.113883.10.20.1.53" />
+                                    <manufacturedMaterial>
+                                        <!-- Φάρμακο, code: EOFcode φαρμάκου, displayName: Ονομασία φαρμάκου -->
+                                        <code code="257800102" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="URPEM EY.DR.S.SD 0,1mg/0,4ML BTX20X0,4ML">
+                                            <originalText>
+                                                <!-- To barcode του φαρμάκου, είναι τιμή αναφοράς σε γραμμή που συμπεριλαμβάνει την τιμή του πεδίου "#med_barcode_1" -->
+                                                <reference value="#med_barcode_1" />
+                                            </originalText>
+                                        </code>
+                                        <!-- Ονομασία φαρμάκου -->
+                                        <name>URPEM EY.DR.S.SD 0,1mg/0,4ML BTX20X0,4ML</name>
+                                        <!-- Φόρμα Φαρμάκου -->
+                                        <epsos:formCode code="EY.DR.S.SD" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="EY.DR.S.SD">
+                                            <epsos:translation displayName="ΟΦΘ.ΣΤΑΓΟΝΕΣ_ΔΟΣΕΙΣ" />
+                                        </epsos:formCode>
+                                        <!-- Πληροφορίες Συσκευασίας -->
+                                        <epsos:asContent classCode="CONT">
+                                            <epsos:containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                                                <epsos:name>URPEM EY.DR.S.SD 0,1mg/0,4ML BTX20X0,4ML</epsos:name>
+                                                <!-- Συσκευασία Φαρμάκου -->
+                                                <epsos:formCode code="BTX20X0,4ML" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="BTX20X0,4ML" />
+                                                <!-- Ποσότητα κάθε Συσκευασίας Φαρμάκου -->
+                                                <epsos:capacityQuantity value="20" />
+                                                <epsos:capTypeCode nullFlavor="NA" />
+                                            </epsos:containerPackagedMedicine>
+                                        </epsos:asContent>
+                                        <epsos:ingredient classCode="ACTI">
+                                            <epsos:quantity>
+                                                <epsos:numerator value="0" unit="0" xsi:type="epsos:PQ" />
+                                                <epsos:denominator value="0" unit="0" xsi:type="epsos:PQ" />
+                                            </epsos:quantity>
+                                            <!-- Δραστική ουσία -->
+                                            <epsos:ingredient classCode="MMAT" determinerCode="KIND">
+                                                <!-- code δραστικής ουσίας -->
+                                                <epsos:code code="34580148" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="KETOTIFEN FUMARATE" />
+                                                <!-- όνομα δραστικής ουσίας -->
+                                                <epsos:name>KETOTIFEN FUMARATE</epsos:name>
+                                            </epsos:ingredient>
+                                        </epsos:ingredient>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </consumable>
+                            <!-- Ποσότητα που συνταγογραφήθηκε -->
+                            <entryRelationship typeCode="COMP">
+                                <supply classCode="SPLY" moodCode="RQO">
+                                    <independentInd value="false" />
+                                    <!-- Ποσότητα -->
+                                    <quantity value="5" unit="1" />
+                                </supply>
+                            </entryRelationship>
+                            <!-- Οδηγίες προς τον φαρμακοποιό -->
+                            <!-- Σχόλια που βάζει ο γιατρός δίπλα στο κάθε φάρμακο -->
+                            <entryRelationship typeCode="SUBJ" inversionInd="true">
+                                <act classCode="ACT" moodCode="INT">
+                                    <templateId root="2.16.840.1.113883.10.20.1.43" />
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3.1" />
+                                    <code code="FINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
+                                    <text>
+                                        <!-- Οι οδηγίες προς τον φαρμακοποιό γίνεται μέσω αναφοράς στην τιμή του πεδίου "#med_notes_1" που ανάφερεται πιο πάνω-->
+                                        <reference value="#med_notes_1" />
+                                    </text>
+                                    <statusCode code="completed" />
+                                </act>
+                            </entryRelationship>
+                            <!-- Το "entryRelationship" που ακολουθεί εμφανίζεται μόνο στην περίπτωση που δεν έχει εκτελεστεί καμία ποσότητα του συγκεκριμένου φαρμάκου -->
+                            <!-- και ταυτόχρονα το φάρμακο αυτό ανήκει σε μία συγκεκριμένη κατηγορία φαρμάκου (έχει δηλαδή MEDICINE GROUP ID). -->
+                            <!-- Το παρόν δείγμα συνταγής που παρουσιάζεται σχετίζεται με μία μερικώς εκτελεσμένη συνταγή (στο φάρμακο που ενσωματώσαμε έχει εκτελεστεί κάποια ποσότητα)-->
+                            <!-- Σε πραγματικες συνθήκες το παρακάτω "entryRelationship" δεν θα εμφανιζόταν, αλλά για λόγους κατανόησης δεν το παραλείπουμε.-->
+                            <entryRelationship typeCode="REFR">
+                                <act classCode="ACT" moodCode="INT">
+                                    <!-- Barcode Φαρμάκου -->
+                                    <id extension="2802578001025" root="1.7.5.1" />
+                                    <!-- Εμπορική ονομασία φαρμάκου -->
+                                    <id extension="URPEM EY.DR.S.SD 0,1mg/0,4ML BTX20X0,4ML" root="1.7.5.2" />
+                                    <!-- Λιανική τιμή Φαρμάκου  -->
+                                    <id extension="7.96" root="1.8.5.1" />
+                                    <!-- Προηγούμενη Λιανική τιμή Φαρμάκου  -->
+                                    <id extension="7.96" root="1.8.6.1" />
+                                    <!-- Μειωμένη Λιανική τιμή Φαρμάκου  -->
+                                    <id extension="5.96" root="1.8.7.1" />
+                                    <!-- Τιμή Αναφοράς Φαρμάκου  -->
+                                    <id extension="6.34" root="1.8.5.2" />
+                                    <!-- Προηγούμενη Τιμή Αναφοράς Φαρμάκου  -->
+                                    <id extension="6.34" root="1.8.6.2" />
+                                    <!-- Μειωμένη Τιμή Αναφοράς Φαρμάκου  -->
+                                    <id extension="5.34" root="1.8.7.2" />
+                                    <!-- Τιμή Χονδρικής Φαρμάκου  -->
+                                    <id extension="5.64" root="1.8.5.3" />
+                                    <!-- Ειδική Τιμή Χονδρικής Φαρμάκου  -->
+                                    <id extension="5" root="1.8.5.4" />
+                                    <!-- Νοσοκομειακό Φάρμακο, 1:Ναι | 0:Όχι -->
+                                    <id extension="0" root="1.8.5.5" />
+                                    <!-- Τιμή Νοσοκομείου για το φάρμακο -->
+                                    <id extension="5.34" root="1.8.5.6" />
+                                    <!-- LOWER_PRICE 1:Ναι| 0:Όχι (ένδειξη χαμηλότερης τιμής ομοειδών φαρμάκων) -->
+                                    <id extension="1" root="1.9.5.1" />
+                                    <!-- Τύπος Φαρμάκου -->
+                                    <id extension="G" root="1.9.6.1" />
+                                    <!-- Θεραπευτική κατηγορία με γενόσημο,  1:Ναι | 0:Όχι -->
+                                    <id extension="0" root="1.9.6.2" />
+                                    <!-- Ποσοστό της έκπτωσης συμμετοχής -->
+                                    <id extension="0" root="1.9.7.1" />
+                                    <!-- Μήνυμα πληροφόρησης -->
+                                    <id extension="H ποσότητα αναφέρεται σε δεκάδες κατά αντιστοιχία με την ταινία γνησιότητας (π.χ. ποσότητα 2 αντιστοιχεί σε εκτέλεση 2 x 10 = 20 φυσίγγων του σκευάσματος)." root="1.9.7.2" />
+                                    <code nullFlavor="NA" />
+                                </act>
+                            </entryRelationship>
+                            <entryRelationship typeCode="SPRT">
+                                <act classCode="ACT" moodCode="EVN">
+                                    <templateId root="2.16.840.1.113883.10.12.301" />
+                                    <!-- Ένδειξη Πρότασης Γενοσήμου Φαρμάκου για την θεραπεία (γραμμή συνταγής), 1:Ναι | 0:Όχι-->
+                                    <id extension="1" root="1.4.15" />
+                                    <!-- Συνολικό ποσό τιμών αναφοράς -->
+                                    <id extension="10" root="1.4.17" />
+                                    <!-- Ποσοστό συμμετοχής ασφαλισμένου -->
+                                    <id extension="10" root="1.4.18" />
+                                    <!-- Υπόλοιπο -->
+                                    <id extension="4" root="1.4.19" />
+                                    <!-- Συμμετοχή ασφαλισμένου -->
+                                    <id extension="0.634" root="1.4.20" />
+                                    <!-- Διαφορά Συμμετοχής Ασφαλισμένου (Συνολική Διαφορά - Διαφορά Ασφαλ. Φορέα) -->
+                                    <id extension="-0.75" root="1.4.21" />
+                                    <!-- Συνολική Διαφορά της γραμμής Συνταγής (η οποία μερίζεται σε Ασφαλ. Φορέα και Ασφαλισμένο) -->
+                                    <id extension="2.55" root="1.4.21.1" />
+                                    <!-- Διαφορά Ασφαλιστικού Φορέα -->
+                                    <id extension="1.0" root="1.4.21.3" />
+                                    <!-- Στην περίπτωση συνταγογράφησης με βάση την δραστική ουσία του φαρμάκου -->
+                                    <!-- Id της λίστας ομοειδών φαρμάκων -->
+                                    <id extension="0" root="1.4.22" />
+                                    <!-- Επιτρέπεται αντικατάσταση του φαρμάκου, 1:Ναι | 0:'Όχι -->
+                                    <id extension="0" root="1.4.23" />
+                                    <!-- Id Ασθένειας Συνταγής -->
+                                    <id extension="34" root="1.4.24" />
+                                    <!-- Περιγραφή Ασθένειας Συνταγής -->
+                                    <id extension="Άσθμα" root="1.4.24.1" />
+                                    <!-- Προτεινόμενο ποσοστό ασθένειας -->
+                                    <id extension="10" root="1.4.24.2" />
+                                    <!-- Στην περίπτωση συνταγογράφησης με βάση την εμπορική ονομασία του φαρμάκου -->
+                                    <!-- Λιανική τιμή Φαρμάκου  -->
+                                    <id extension="7.96" root="1.8.5.1" />
+                                    <!-- Προηγούμενη Λιανική τιμή Φαρμάκου  -->
+                                    <id extension="7.96" root="1.8.6.1" />
+                                    <!-- Μειωμένη Λιανική τιμή Φαρμάκου  -->
+                                    <id extension="5.96" root="1.8.7.1" />
+                                    <!-- Τιμή Αναφοράς Φαρμάκου  -->
+                                    <id extension="6.34" root="1.8.5.2" />
+                                    <!-- Προηγούμενη Τιμή Αναφοράς Φαρμάκου  -->
+                                    <id extension="6.34" root="1.8.6.2" />
+                                    <!-- Μειωμένη Τιμή Αναφοράς Φαρμάκου  -->
+                                    <id extension="5.34" root="1.8.7.2" />
+                                    <!-- Τιμή Χονδρικής Φαρμάκου  -->
+                                    <id extension="5.64" root="1.8.5.3" />
+                                    <!-- Ειδική Τιμή Χονδρικής Φαρμάκου  -->
+                                    <id extension="5" root="1.8.5.4" />
+                                    <!-- Νοσοκομειακό Φάρμακο, 1:Ναι | 0:Όχι -->
+                                    <id extension="0" root="1.8.5.5" />
+                                    <!-- Τιμή Νοσοκομείου για το φάρμακο -->
+                                    <id extension="5.34" root="1.8.5.6" />
+                                    <!-- LOWER_PRICE 1:Ναι| 0:Όχι (ένδειξη χαμηλότερης τιμής ομοειδών φαρμάκων) -->
+                                    <id extension="1" root="1.9.5.1" />
+                                    <!-- Τύπος Φαρμάκου -->
+                                    <id extension="G" root="1.9.6.1" />
+                                    <!-- Θεραπευτική κατηγορία με γενόσημο,  1:Ναι | 0:Όχι -->
+                                    <id extension="0" root="1.9.6.2" />
+                                    <!-- Ποσοστό της έκπτωσης συμμετοχής -->
+                                    <id extension="0" root="1.9.7.1" />
+                                    <!-- Το section εμφανίζεται μόνο για φάρμακα που χαρακτηρίζονται ως εισαγωγές ΙΦΕΤ -->
+                                    <!-- Δραστική ουσία φαρμάκου εισαγωγής ΙΦΕΤ -->
+                                    <id extension="active substance" root="1.4.25" />
+                                    <!-- Φαρμ. μορφή φαρμάκου εισαγωγής ΙΦΕΤ -->
+                                    <id extension="form code" root="1.4.26" />
+                                    <!-- Περιεκτικότητα φαρμάκου εισαγωγής ΙΦΕΤ -->
+                                    <id extension="content" root="1.4.27" />
+                                    <!-- Εμπορική ονομασία φαρμάκου εισαγωγής ΙΦΕΤ Φαρμακοποιού -->
+                                    <id extension="commercial name" root="1.4.28" />
+                                    <!-- Μονάδα δόσης φαρμάκου εισαγωγής ΙΦΕΤ Φαρμακοποιού -->
+                                    <id extension="dose unit" root="1.4.29" />
+                                    <!-- Φαρμ. μορφή φαρμάκου εισαγωγής ΙΦΕΤ Φαρμακοποιού-->
+                                    <id extension="pharm form code" root="1.4.30" />
+                                    <!-- Περιεκτικότητα φαρμάκου εισαγωγής ΙΦΕΤ Φαρμακοποιού-->
+                                    <id extension="pharm content" root="1.4.31" />
+                                    <!-- Συσκευασία φαρμάκου εισαγωγής ΙΦΕΤ Φαρμακοποιού -->
+                                    <id extension="package" root="1.4.32" />
+                                    <!-- Τιμή Μονάδος φαρμάκου εισαγωγής ΙΦΕΤ Φαρμακοποιού -->
+                                    <id extension="10.0" root="1.4.33" />
+                                    <code nullFlavor="NA" />
+                                </act>
+                            </entryRelationship>
+                            <entryRelationship typeCode="SPRT">
+                                <act classCode="ACT" moodCode="EVN">
+                                    <!-- Συναίνεση Ασθενή -->
+                                    <id extension="1" root="2.10.6" />
+                                    <!--  Πλήθος εκτέλεσης φαρμάκου -->
+                                    <id extension="1" root="2.10.8" />
+                                    <!-- Τιμή Εκτέλεσης -->
+                                    <id extension="6.34" root="2.10.9" />
+                                    <!-- Τιμή Αναφοράς -->
+                                    <id extension="7.96" root="2.10.11" />
+                                    <!-- Τιμή Λιανικής -->
+                                    <id extension="6.34" root="2.10.10" />
+                                    <!-- Ταινία γνησιότητας -->
+                                    <id extension="090909090909" root="2.10.12" />
+                                    <!-- Διαφορά Ασφαλιστικού Φορέα ανά Εκτέλεση Ποσότητας Φαρμάκου -->
+                                    <id extension="0.75" root="1.4.21.2" />
+                                    <code nullFlavor="NA" />
+                                    <!-- Ημερομηνία Εκτέλεσης -->
+                                    <effectiveTime value="20150121161246" />
+                                </act>
+                            </entryRelationship>
+                            <entryRelationship typeCode="REFR">
+                                <act classCode="INFRM" moodCode="EVN">
+                                    <code nullFlavor="NA" />
+                                    <!--Διάγνωση 1 -->
+                                    <entryRelationship typeCode="RSON">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.1.28" />
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                                            <code code="282291009" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.23" codeSystemName="SNOMED-CT" displayName="Diagnosis interpretation" />
+                                            <text>Λίθος χοληφόρου πόρου με χολοκυστίτιδα</text>
+                                            <statusCode code="completed" />
+                                            <value xsi:type="CD" code="K80.4" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.2" codeSystemName="ICD10" displayName="Λίθος χοληφόρου πόρου με χολοκυστίτιδα" />
+                                        </observation>
+                                    </entryRelationship>
+                                    <!-- Διάγνωση 2 -->
+                                    <entryRelationship typeCode="RSON">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.1.28" />
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                                            <code code="282291009" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.23" codeSystemName="SNOMED-CT" displayName="Diagnosis interpretation" />
+                                            <text>Κακόηθες νεόπλασμα του λεπτού εντέρου</text>
+                                            <statusCode code="completed" />
+                                            <value xsi:type="CD" code="C17" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.2" codeSystemName="ICD10" displayName="Κακόηθες νεόπλασμα του λεπτού εντέρου" />
+                                        </observation>
+                                    </entryRelationship>
+                                </act>
+                            </entryRelationship>
+                        </substanceAdministration>
+                    </entry>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

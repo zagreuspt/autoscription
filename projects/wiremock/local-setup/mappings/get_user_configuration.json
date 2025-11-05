@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/user_configuration"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 15000,
+    "jsonBody": {
+      "is_whitelisted": false,
+      "check_string": "{{request.check_string}}",
+      "time_order": false,
+      "report_category_breakdown": false,
+      "reporting_show_overview": false,
+      "detectors_max_threads": 0,
+      "use_selfsigned_certificates": false,
+      "should_guess_pharmacy_id": false
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

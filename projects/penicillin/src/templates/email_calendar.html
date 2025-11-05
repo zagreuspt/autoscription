@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h2 style="color: #002537;" id="calendar-header">{{ greekMonthNames[month - 1] }} {{ year }}</h2>
+    <table id="calendar-table" style="border-collapse: collapse; width: 50%; border-radius: 20px; overflow: hidden; box-shadow: 0 0 10px rgba(98, 10, 10, 0.15); font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; text-align: center;">
+        <tr>
+            <th style="padding: 17px; background-color: #002537; color: #FEFEFC; text-transform: uppercase;">Δευ</th>
+            <th style="padding: 17px; background-color: #002537; color: #FEFEFC; text-transform: uppercase;">Τρι</th>
+            <th style="padding: 17px; background-color: #002537; color: #FEFEFC; text-transform: uppercase;">Τετ</th>
+            <th style="padding: 17px; background-color: #002537; color: #FEFEFC; text-transform: uppercase;">Πεμ</th>
+            <th style="padding: 17px; background-color: #002537; color: #FEFEFC; text-transform: uppercase;">Παρ</th>
+            <th style="padding: 17px; background-color: #002537; color: #FEFEFC; text-transform: uppercase;">Σαβ</th>
+            <th style="padding: 17px; background-color: #002537; color: #FEFEFC; text-transform: uppercase;">Κυρ</th>
+        </tr>
+        {% for i in range(6) %}
+            <tr>
+                {% for j in range(7) %}
+                    {% set currentDay = i*7 + j + 1 - startDay %}
+                    {% if i == 0 and j < startDay or currentDay > daysInMonth %}
+                        <td style="padding: 12px; background-color: #4cadbe"></td>
+                    {% else %}
+                        <td style="
+                            padding: 12px;
+                            background-color: {% if j == 6 %}#4cadbe{% elif currentDay in softwareRunDays and currentDay <= today %}#2bc365{% elif currentDay == today %}#29a2c7{% elif currentDay > today %}#4cadbe{% else %}#c63232{% endif %};
+                            color: #FEFEFC;
+                        ">{{ currentDay }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

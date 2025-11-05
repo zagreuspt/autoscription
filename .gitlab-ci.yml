@@ -1,0 +1,91 @@
+# This file is a template, and might need editing before it works on your project.
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml
+
+# Official language image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/python/tags/
+image: python:3.8
+
+# Change pip's cache directory to be inside the project directory since we can
+# only cache local items.
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+# Pip's cache doesn't store the python packages
+# https://pip.pypa.io/en/stable/topics/caching/
+#
+# If you want to also cache the installed packages, you have to install
+# them in a virtualenv and cache it as well.
+cache:
+  paths:
+    - .cache/pip
+    - runtest
+
+
+static_code_analysis:
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^release/'
+  before_script:
+    - python --version  # For debugging
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+  script:
+    - pip install -r requirements-dev.txt
+    - tox -e lint
+    - tox -e type
+unit_tests:
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^release/'
+  before_script:
+    - python --version  # For debugging
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+  script:
+    - python -m pip install pip==24.0
+    - pip install -r requirements-dev.txt
+    - apt-get update
+    - apt-get install libzbar-dev build-essential libglib2.0-0 libsm6 libxext6 libxrender-dev ffmpeg libgl1 -y
+    - tox -e runtest
+  artifacts:
+    paths:
+      - reports
+
+.deploy_common:
+  image: docker
+  services:
+    - docker:dind
+  before_script:
+    - apk --no-cache add curl
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build ./projects/penicillin -f ./projects/penicillin/Dockerfile -t $CI_REGISTRY/autoscription/autoscription/penicillin:latest
+    - docker push $CI_REGISTRY/autoscription/autoscription/penicillin:latest
+    - |
+      docker rm -f test_container || true
+      docker run -d --name test_container -e ENABLE_MONITORING=False registry.gitlab.com/autoscription/autoscription/penicillin:latest
+      sleep 10s
+      exit_code=$(docker inspect -f '{{.State.ExitCode}}' test_container)
+      if [ $exit_code -eq 0 ]; then
+        echo "container startups"
+        docker rm -f test_container
+        echo $PENICILLIN_WEB_HOOK
+        curl -X POST $PENICILLIN_WEB_HOOK
+      else
+        echo "startup fails"
+        exit 1;
+      fi
+penicillin_deploy_on_merge:
+  extends: .deploy_common
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "main"'
+      changes:
+      - 'projects/penicillin/**/*'
+penicillin_deploy_manual:
+  extends: .deploy_common
+  when: manual

@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ClinicalDocument
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:epsos="urn:epsos-org:ep:medication"
+    xmlns="urn:hl7-org:v3">
+    <realmCode code="US"/>
+    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+    <!-- Μοναδικό χαρακτηριστικό για το EpsosEDispensation -->
+    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.1.2"/>
+    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.1"/>
+    <!-- Το barcode της Συνταγής -->
+    <id extension="1504079007910" root="1.21"/>
+    <code code="60593-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="eDispensation"/>
+    <title>Medication Dispensed</title>
+    <!-- Ημερομηνία Εκτέλεσης -->
+    <effectiveTime value="20150407"/>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+    <languageCode code="el-GR"/>
+    <!-- Πληροφορίες Ασθενή -->
+    <recordTarget contextControlCode="OP" typeCode="RCT">
+        <patientRole>
+            <!-- ΑΜΚΑ Ασθενή -->
+            <id extension="19999999991" root="1.10.1"/>
+            <!-- Id Ασφαλιστικού Φορέα με βάση το οποίο έγινε η συνταγογράφηση -->
+            <id extension="4" root="1.10.30.1"/>
+            <!-- Όνομα Ασφαλιστικού Φορέα με βάση το οποίο έγινε η συνταγογράφηση -->
+            <id extension="Ο.Α.Ε.Ε." root="1.10.30.2"/>
+            <!-- ΑΜΑ με βάση το οποίο έγινε η συνταγογράφηση -->
+            <id extension="11111" root="1.10.2"/>
+            <!-- Τύπος ασφαλισμένου με βάση το οποίο έγινε η συνταγογράφηση -->
+            <id extension="Άμεσος" root="1.20.1"/>
+            <!-- Διεύθυνση -->
+            <addr>
+                <streetAddressLine>ΔΙΕΥΘΥΝΣΗ</streetAddressLine>
+                <city>ΑΘΗΝΑ</city>
+                <postalCode>12345</postalCode>
+                <country>GR</country>
+            </addr>
+            <!-- Τηλέφωνο -->
+            <telecom use="MC" value="tel:+2222222222"/>
+            <!-- email -->
+            <telecom use="HP" value="mailto:test_patient@gmail.com"/>
+            <patient>
+                <!-- Όνομα / Επίθετο-->
+                <name>
+                    <given>ΟΝΟΜΑ</given>
+                    <family>ΕΠΩΝΥΜΟ</family>
+                </name>
+                <!-- Φύλο: F για Γυναίκα, Μ για Άνδρας -->
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
+                <!-- Ημερομηνία Γέννησης: "DDMMYYHHmm" -->
+                <birthTime value="19290101"/>
+                <raceCode nullFlavor="NA"/>
+                <ethnicGroupCode nullFlavor="NA"/>
+                <languageCommunication>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.1"/>
+                    <languageCode code="el-GR"/>
+                </languageCommunication>
+            </patient>
+        </patientRole>
+    </recordTarget>
+    <!-- Πληροφορίες Φαρμακοποιού -->
+    <author>
+        <functionCode code="2262" codeSystem="2.16.840.1.113883.2.9.6.2.7" codeSystemName="ISCO" displayName="Pharmacists"/>
+        <time value="20150407"/>
+        <assignedAuthor>
+            <id root="2.16.840.1.113883.4.6"/>
+            <!-- Id Φαρμακοποιού -->
+            <id extension="11111" root="1.18.1"/>
+            <!-- Τηλέφωνο -->
+            <telecom use="MC" value="tel:+6900000000"/>
+            <!-- email -->
+            <telecom use="HP" value="mailto:test5@gmail.gr"/>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <!-- Όνομα / Eπίθετο -->
+                <name>
+                    <given>ΌνομαΦ</given>
+                    <family>ΕπίθετοΦ</family>
+                </name>
+            </assignedPerson>
+            <!-- Στοιχεία φαρμακείου -->
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <!-- Id Μονάδας -->
+                <id extension="111111" root="1.18.1.1"/>
+                <!-- Επωνυμία -->
+                <name>eponymia</name>
+                <!-- Κινητό-->
+                <telecom use="MC" value="tel:+6900000000"/>
+                <!-- Διεύθυνση Μονάδας -->
+                <addr>
+                    <streetAddressLine>Διεύθυνση 5</streetAddressLine>
+                    <city>Πόλη</city>
+                    <postalCode>12345</postalCode>
+                    <state nullFlavor="NI"/>
+                    <country>GR</country>
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <!-- Στοιχεία Φαρμακευτικού Συλλόγου -->
+    <custodian typeCode="CST">
+        <assignedCustodian classCode="ASSIGNED">
+            <!-- Φαρμακευτικός Σύλλογος -->
+            <representedCustodianOrganization>
+                <id extension="6" root="1.5.2.1"/>
+                <name>ΑΤΤΙΚΗΣ</name>
+                <telecom use="MC" value="tel:+210/5247783"/>
+                <addr>
+                    <streetAddressLine>ΜΥΛΛΕΡΟΥ 1- ΑΓΗΣΙΛΑΟΥ</streetAddressLine>
+                    <city>ΑΘΗΝΑ</city>
+                    <postalCode>10430</postalCode>
+                    <country>GR</country>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <!-- Στοιχεία Φαρμακοποιού που εκτέλεσε την συνταγή -->
+    <legalAuthenticator>
+        <time value="20150407"/>
+        <signatureCode code="S"/>
+        <assignedEntity>
+            <!-- Id Φαρμακοποιού -->
+            <id extension="11111" root="1.18.1"/>
+            <!-- Τηλέφωνο -->
+            <telecom use="MC" value="tel:+6900000000"/>
+            <!-- email -->
+            <telecom use="HP" value="mailto:test5@gmail.gr"/>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name>
+                    <given>ΌνομαΦ</given>
+                    <family>ΕπίθετοΦ</family>
+                </name>
+            </assignedPerson>
+            <!-- Στοιχεία φαρμακείου -->
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="111111" root="1.18.1.1"/>
+                <name>eponymia</name>
+                <telecom use="MC" value="tel:+2999999999"/>
+                <!-- Διεύθυνση Μονάδας -->
+                <addr>
+                    <streetAddressLine>Διεύθυνση 5</streetAddressLine>
+                    <city>Πόλη</city>
+                    <postalCode>12345</postalCode>
+                    <state nullFlavor="NI"/>
+                    <country>GR</country>
+                </addr>
+            </representedOrganization>
+        </assignedEntity>
+    </legalAuthenticator>
+    <inFulfillmentOf>
+        <order>
+            <!-- Βarcode Συνταγής -->
+            <id extension="1504079007910" root="1.21"/>
+        </order>
+    </inFulfillmentOf>
+    <relatedDocument typeCode="XFRM">
+        <parentDocument>
+            <!-- Βarcode Συνταγής -->
+            <id extension="1504079007910" root="1.21"/>
+        </parentDocument>
+    </relatedDocument>
+    <component>
+        <structuredBody>
+            <component>
+                <section>
+                    <templateId root="2.16.840.1.113883.10.20.1.8"/>
+                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.2.2"/>
+                    <!-- Βarcode Συνταγής -->
+                    <id extension="1504079007910" root="1.21"/>
+                    <code code="60590-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Medication dispensed"/>
+                    <title>Treatments Dispensed</title>
+                    <text>
+                        <!-- Λίστα Βarcode Φαρμάκων -->
+                        <list>
+                            <item ID="med_barcode_1">2801918703018</item>
+                            <item ID="med_barcode_2">2802676702022</item>
+                            <item ID="prescription_notes"> Σχόλια Συνταγής </item>
+                        </list>
+                    </text>
+                    <entry>
+                        <act classCode="ACT" moodCode="EVN">
+							<!-- Id Συνταγής -->
+                            <id extension="11232133" root="1.22"/>
+                            <!-- Id περίπτωσης εκτέλεσης -->
+                            <id extension="1" root="2.10.7"/>
+							<!-- Επιβάρυνση από ασφαλιστικό ταμείο (Επιβάρυνση 1 Ευρώ) - 0 : ΌΧΙ | 1 : ΝΑΙ -->
+							<id extension="1" root="1.1.22.1"/>
+							<!-- Ποσό Επιβάρυνσης από ασφαλιστικό ταμείο (Επιβάρυνση 1 Ευρώ) -->
+                            <id extension="1.0" root="1.1.22"/>
+                            <!-- Συνολικό ποσό συμμετοχής ασθενή -->
+                            <id extension="0.634" root="1.1.2.4"/>
+                            <!-- Συνολικό ποσό συμμετοχής Ασφαλιστικού Φορέα -->
+                            <id extension="5.706" root="1.1.2.5"/>
+                            <!-- Αξία συμπληρωματικής ασφάλισης -->
+                            <id extension="0.0" root="1.1.27.1"/>
+                            <!-- Ένδειξη απαλλαγής συμμετοχής ασφαλισμένου, 1:Ναι | 0:Όχι -->
+							<id extension="1" root="1.1.26"/>
+                            <!-- Λόγος απαλλαγής συμμετοχής ασφαλισμένου -->
+							<id extension="λόγος απαλλαγής" root="1.1.26.1"/>
+                            <!-- Γνωμάτευση -->
+							<id extension="1" root="1.1.23"/>
+                            <code nullFlavor="NI"/>
+                           <effectiveTime xsi:type="IVL_TS">
+                                <!-- Ημερομηνία Έκδοσης -->
+                                <low value="20150120"/>
+                                <!-- Ημερομηνία Πρoθεσμίας Εκτέλεσης-->
+                                <high value="20150130"/>
+                            </effectiveTime>
+                        </act>
+                    </entry>
+                    <!-- Στοιχεία που αφορούν την μία (και μοναδική) ποσότητα της πρώτης θεραπείας -->
+                    <entry>
+                        <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.2"/>
+                        <supply classCode="SPLY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.1.34"/>
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3"/>
+                            <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.3"/>
+                            <!-- Ιd 1ης Θεραπείας -->
+                            <id extension="21901490" root="1.21.1"/>
+                            <!-- Ποσότητα 1ης Θεραπείας -->
+                            <quantity value="1" unit="1"/>
+                            <product>
+                                <manufacturedProduct classCode="MANU">
+                                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.1"/>
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <manufacturedMaterial>
+                                        <epsos:id root="1.3.6.1.4.1.12559.11.10.1.3.1.3.3"/>
+                                        <!-- Φάρμακο, code: EOFcode φαρμάκου, displayName: Ονομασία φαρμάκου -->
+                                        <code code="191870301" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="KESSAR F.C.TAB 10MG/TAB ΒΤx30">
+                                            <originalText>
+                                                <!-- Αναφορά στο barcode Φαρμάκου -->
+                                                <reference value="#med_barcode_1"/>
+                                            </originalText>
+                                        </code>
+                                        <!-- Ονομασία φαρμάκου -->
+                                        <name>KESSAR F.C.TAB 10MG/TAB ΒΤx30</name>
+                                        <!-- Φόρμα / Συσκευασία Φαρμάκου -->
+                                        <epsos:formCode code="F.C.TAB" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="F.C.TAB"/>
+                                        <epsos:asContent classCode="CONT">
+                                            <epsos:containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                                                <!-- Ονομασία φαρμάκου -->
+                                                <epsos:name>KESSAR F.C.TAB 10MG/TAB ΒΤx30</epsos:name>
+                                                <!-- Συσκευασία Φαρμάκου -->
+                                                <epsos:formCode code="ΒΤx30" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="ΒΤx30"/>
+                                                <!-- Ταινία γνησιότητας Φαρμάκου -->
+                                                <epsos:lotNumberText>150411392749</epsos:lotNumberText>
+                                                <!-- Ποσότητα κάθε Συσκευασίας Φαρμάκου -->
+                                                <epsos:capacityQuantity value="30"/>
+                                                <epsos:capTypeCode nullFlavor="NA"/>
+                                            </epsos:containerPackagedMedicine>
+                                        </epsos:asContent>
+                                        <epsos:ingredient classCode="ACTI">
+                                            <epsos:quantity>
+                                                <epsos:numerator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                                <epsos:denominator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                            </epsos:quantity>
+                                            <!-- Δραστική ουσία -->
+                                            <epsos:ingredient classCode="MMAT" determinerCode="KIND">
+                                                <!-- code δραστικής ουσίας -->
+                                                <epsos:code code="54965241" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="TAMOXIFEN CITRATE"/>
+                                                <!-- όνομα δραστικής ουσίας -->
+                                                <epsos:name>TAMOXIFEN CITRATE</epsos:name>
+                                            </epsos:ingredient>
+                                        </epsos:ingredient>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </product>
+                            <!-- Στοιχεία Φαρμακοποιού που εκτέλεσε την συνταγή -->
+                            <performer typeCode="PRF">
+                                <time value="20150407"/>
+                                <assignedEntity>
+                                    <!-- Ιd Φαρμακοποιού που εκτέλεσε την συνταγή -->
+                                    <id extension="11111" root="1.18.1"/>
+                                    <!-- Αριθμός Τηλεφώνου -->
+                                    <telecom use="MC" value="tel:+6900000000"/>
+                                    <!-- Αριθμός Τηλεφώνου -->
+                                    <telecom use="HP" value="mailto:test5@gmail.gr"/>
+                                    <assignedPerson>
+                                        <!-- Όνομα / Επίθετο -->
+                                        <name>
+                                            <given>ΌνομαΦ</given>
+                                            <family>ΕπίθετοΦ</family>
+                                        </name>
+                                    </assignedPerson>
+                                    <!-- Στοιχεία φαρμακείου -->
+                                    <representedOrganization>
+                                        <!-- Id αυτού που εκτελεί -->
+                                        <id extension="111111" root="1.18.1.1"/>
+                                        <!-- Επωνυμία -->
+                                        <name>eponymia</name>
+                                        <!-- Κινητό-->
+                                        <telecom use="MC" value="tel:+6900000000"/>
+                                        <!-- Διεύθυνση -->
+                                        <addr>
+                                            <streetAddressLine>Διεύθυνση 5</streetAddressLine>
+                                            <city>Πόλη</city>
+                                            <postalCode>12345</postalCode>
+                                            <state nullFlavor="NI"/>
+                                            <country>GR</country>
+                                        </addr>
+                                    </representedOrganization>
+                                </assignedEntity>
+                            </performer>
+                            <participant typeCode="PRF">
+                                <participantRole classCode="LIC">
+                                    <!-- Ιd Φαρμακοποιού που εκτέλεσε την συνταγή -->
+                                    <id extension="11111" root="1.18.1"/>
+                                    <scopingEntity>
+                                        <!-- Φαρμακευτικός Σύλλογος -->
+                                        <id extension="1" root="1.5.2.1"/>
+                                        <desc>ΑΙΓΙΑΛΕΙΑΣ</desc>
+                                    </scopingEntity>
+                                </participantRole>
+                            </participant>
+                            <entryRelationship typeCode="SPRT">
+                                <act classCode="ACT" moodCode="EVN">
+                                     <!--  Πλήθος εκτέλεσης φαρμάκου -->
+                                    <id extension="1" root="2.10.6"/>
+                                    <!--  Πλήθος εκτέλεσης φαρμάκου -->
+                                    <id extension="1" root="2.10.8"/>
+                                    <!-- Τιμή Εκτέλεσης -->
+                                    <id extension="2.52" root="2.10.9"/>
+                                    <!-- Τιμή Λιανικής -->
+                                    <id extension="3.84" root="2.10.11"/>
+ 									<!-- Τιμή Αναφοράς -->
+                                    <id extension="2.52" root="2.10.10"/>
+                                    <code nullFlavor="NA"/>
+                                    <!-- Ημερομηνία Εκτέλεσης -->
+                                    <effectiveTime value="20150407093511"/>
+                                </act>
+                            </entryRelationship>
+                            <entryRelationship typeCode="REFR">
+                                <substanceAdministration classCode="SBADM" moodCode="INT">
+                                    <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.2"/>
+                                    <!-- Ιd 1ης Θεραπείας -->
+                                    <id extension="21901490" root="1.21.1"/>
+                                    <statusCode code="active"/>
+                                    <!-- Έναρξη/Λήξη θεραπείας, Δεν χρησιμοποιείται προς το παρών. Πάντα UNK -->
+                                    <effectiveTime xsi:type="IVL_TS">
+                                        <low nullFlavor="UNK"/>
+                                        <high nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <!-- Συχνότητα Συνταγής -->
+                                    <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                        <period value="6" unit="h"/>
+                                    </effectiveTime>
+                                    <!-- Ποσότητα δόσης -->
+                                    <doseQuantity>
+                                        <low value="5" unit="ΔΙΣΚΙΑ_ΕΠΙΚΑΛ"/>
+                                        <high value="5" unit="ΔΙΣΚΙΑ_ΕΠΙΚΑΛ"/>
+                                    </doseQuantity>
+                                    <!-- Διάρκεια λήψης του φαρμάκου -->
+                                    <rateQuantity>
+                                        <low value="8" unit="d"/>
+                                        <high value="8" unit="d"/>
+                                    </rateQuantity>
+                                    <!-- Πληροφορίες Φαρμάκου -->
+                                    <consumable>
+                                        <manufacturedProduct classCode="MANU">
+                                            <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.1"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                            <manufacturedMaterial>
+                                                <!-- Φάρμακο, code: EOFcode φαρμάκου, displayName: Ονομασία φαρμάκου -->
+                                                <code code="191870301" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="KESSAR F.C.TAB 10MG/TAB ΒΤx30">
+                                                    <originalText>
+                                                        <!-- To barcode του φαρμάκου, είναι τιμή αναφοράς σε γραμμή που συμπεριλαμβάνει την τιμή του πεδίου "#med_barcode_1" -->
+                                                        <reference value="#med_barcode_1"/>
+                                                    </originalText>
+                                                </code>
+                                                <!-- Ονομασία φαρμάκου -->
+                                                <name>KESSAR F.C.TAB 10MG/TAB ΒΤx30</name>
+                                                <!-- Φόρμα Φαρμάκου -->
+                                                <epsos:formCode code="F.C.TAB" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="F.C.TAB"/>
+                                                <epsos:asContent classCode="CONT">
+                                                    <epsos:containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                                                        <!-- Ονομασία φαρμάκου -->
+                                                        <epsos:name>KESSAR F.C.TAB 10MG/TAB ΒΤx30</epsos:name>
+                                                        <!-- Συσκευασία Φαρμάκου -->
+                                                        <epsos:formCode code="ΒΤx30" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="ΒΤx30"/>
+                                                        <!-- Ποσότητα κάθε Συσκευασίας Φαρμάκου -->
+                                                        <epsos:capacityQuantity value="30"/>
+                                                        <epsos:capTypeCode nullFlavor="NA"/>
+                                                    </epsos:containerPackagedMedicine>
+                                                </epsos:asContent>
+                                                <epsos:ingredient classCode="ACTI">
+                                                    <epsos:quantity>
+                                                        <epsos:numerator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                                        <epsos:denominator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                                    </epsos:quantity>
+                                                    <!-- Δραστική ουσία -->
+                                                    <epsos:ingredient classCode="MMAT" determinerCode="KIND">
+                                                        <!-- code δραστικής ουσίας -->
+                                                        <epsos:code code="54965241" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="TAMOXIFEN CITRATE"/>
+                                                        <!-- όνομα δραστικής ουσίας -->
+                                                        <epsos:name>TAMOXIFEN CITRATE</epsos:name>
+                                                    </epsos:ingredient>
+                                                </epsos:ingredient>
+                                            </manufacturedMaterial>
+                                        </manufacturedProduct>
+                                    </consumable>
+                                    <!-- Ποσότητα που συνταγογραφήθηκε -->
+                                    <entryRelationship typeCode="COMP">
+                                        <supply classCode="SPLY" moodCode="RQO">
+                                            <independentInd value="false"/>
+                                            <!-- Ποσότητα -->
+                                            <quantity value="1" unit="1"/>
+                                        </supply>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="SPRT">
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.12.301"/>
+                                    		<!-- Συνολικό ποσό τιμών αναφοράς -->
+                                    		<id extension="10" root="1.4.17"/>
+                                    		<!-- Ποσοστό συμμετοχής ασφαλισμένου -->
+                                    		<id extension="10" root="1.4.18"/>
+                                    		<!-- Υπόλοιπο -->
+                                    		<id extension="0" root="1.4.19"/>
+                                    		<!-- Συμμετοχή ασφαλισμένου -->
+                                    		<id extension="0.634" root="1.4.20"/>
+                                    		<!-- Διαφορά Συμμετοχής Ασφαλισμένου (Συνολική Διαφορά - Διαφορά Ασφαλ. Φορέα) -->
+                                    		<id extension="-0.75" root="1.4.21"/>
+                                    		<!-- Συνολική Διαφορά της γραμμής Συνταγής (η οποία μερίζεται σε Ασφαλ. Φορέα και Ασφαλισμένο) -->
+                                    		<id extension="2.55" root="1.4.21.1"/>
+                                    		<!-- Στην περίπτωση συνταγογράφησης με βάση την δραστική ουσία του φαρμάκου -->
+                                    		<!-- Id της λίστας ομοειδών φαρμάκων -->
+                                    		<id extension="0" root="1.4.22"/>
+                                    		<!-- Επιτρέπεται αντικατάσταση του φαρμάκου, 1:Ναι | 0:'Όχι -->
+                                    		<id extension="0" root="1.4.23"/>
+                                            <!-- Θεραπευτική κατηγορία με γενόσημο κατα τη στιγμή της εκτέλεσης της συνταγής,  1:Ναι | 0:Όχι -->
+                                    		<id extension="0" root="1.4.34"/>
+                                    		<!-- Τρέχουσα Θεραπευτική κατηγορία με γενόσημο,  1:Ναι | 0:Όχι -->
+                                    		<id extension="0" root="1.9.6.2"/>
+                                        </act>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="SPRT">
+                                        <act classCode="ACT" moodCode="EVN">
+                                           <!--  Συναίνεση Ασθενή -->
+                                            <id extension="1" root="2.10.6"/>
+                                            <!--  Πλήθος εκτέλεσης φαρμάκου -->
+                                            <id extension="1" root="2.10.8"/>
+                                            <!-- Τιμή Εκτέλεσης -->
+                                            <id extension="2.52" root="2.10.9"/>
+                                            <!-- Τιμή Λιανικής -->
+                                            <id extension="3.84" root="2.10.11"/>
+                                            <!-- Τιμή Αναφοράς -->
+                                            <id extension="2.52" root="2.10.10"/>
+                                            <!-- Ταινία γνησιότητας -->
+                                            <id extension="150411392749" root="2.10.12"/>
+                                            <code nullFlavor="NA"/>
+                                            <!-- Ημερομηνία Εκτέλεσης -->
+                                            <effectiveTime value="20150407093511"/>
+                                        </act>
+                                    </entryRelationship>
+                                </substanceAdministration>
+                            </entryRelationship>
+                        </supply>
+                    </entry>
+                    <!-- Στοιχεία που αφορούν την πρώτη ποσότητα της δεύτερης θεραπείας -->
+                    <entry>
+                        <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.2"/>
+                        <supply classCode="SPLY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.1.34"/>
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3"/>
+                            <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.3"/>
+                            <id extension="21901489" root="1.21.1"/>
+                            <quantity value="1" unit="1"/>
+                            <product>
+                                <manufacturedProduct classCode="MANU">
+                                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.1"/>
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <manufacturedMaterial>
+                                        <epsos:id root="1.3.6.1.4.1.12559.11.10.1.3.1.3.3"/>
+                                        <code code="267670202" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)">
+                                            <originalText>
+                                                <reference value="#med_barcode_2"/>
+                                            </originalText>
+                                        </code>
+                                        <name>NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)</name>
+                                        <epsos:formCode code="CAPS" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="CAPS"/>
+                                        <epsos:asContent classCode="CONT">
+                                            <epsos:containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                                                <epsos:name>NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)</epsos:name>
+                                                <epsos:formCode code="BTx30_(BLIST_3x10)" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="BTx30_(BLIST_3x10)"/>
+                                                <epsos:lotNumberText>150411392746</epsos:lotNumberText>
+                                                <epsos:capacityQuantity value="30"/>
+                                                <epsos:capTypeCode nullFlavor="NA"/>
+                                            </epsos:containerPackagedMedicine>
+                                        </epsos:asContent>
+                                        <epsos:ingredient classCode="ACTI">
+                                            <epsos:quantity>
+                                                <epsos:numerator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                                <epsos:denominator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                            </epsos:quantity>
+                                            <epsos:ingredient classCode="MMAT" determinerCode="KIND">
+                                                <epsos:code code="INEOF00344" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="AMLODIPINE BESYLATE"/>
+                                                <epsos:name>AMLODIPINE BESYLATE</epsos:name>
+                                            </epsos:ingredient>
+                                        </epsos:ingredient>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </product>
+                            <performer typeCode="PRF">
+                                <time value="20150407"/>
+                                <assignedEntity>
+                                    <id extension="11111" root="1.18.1"/>
+                                    <telecom use="MC" value="tel:+6900000000"/>
+                                    <telecom use="HP" value="mailto:test5@gmail.gr"/>
+                                    <assignedPerson>
+                                        <name>
+                                            <given>ΌνομαΦ</given>
+                                            <family>ΕπίθετοΦ</family>
+                                        </name>
+                                    </assignedPerson>
+                                    <representedOrganization>
+                                        <id extension="111111" root="1.18.1"/>
+                                        <name>eponymia</name>
+                                        <telecom use="MC" value="tel:+6900000000"/>
+                                        <addr>
+                                            <streetAddressLine>Διεύθυνση 5</streetAddressLine>
+                                            <city>Πόλη</city>
+                                            <postalCode>12345</postalCode>
+                                            <state nullFlavor="NI"/>
+                                            <country>GR</country>
+                                        </addr>
+                                    </representedOrganization>
+                                </assignedEntity>
+                            </performer>
+                            <participant typeCode="PRF">
+                                <participantRole classCode="LIC">
+                                    <id extension="11111" root="1.18.1"/>
+                                    <scopingEntity>
+                                        <id extension="1" root="1.5.2.1"/>
+                                        <desc>ΑΙΓΙΑΛΕΙΑΣ</desc>
+                                    </scopingEntity>
+                                </participantRole>
+                            </participant>
+                            <entryRelationship typeCode="SPRT">
+                                <act classCode="ACT" moodCode="EVN">
+                                    <id extension="1" root="2.10.8"/>
+                                    <id extension="9.21" root="2.10.9"/>
+                                    <id extension="9.21" root="2.10.11"/>
+                                    <id extension="9.21" root="2.10.10"/>
+                                    <code nullFlavor="NA"/>
+                                    <effectiveTime value="20150407093511"/>
+                                </act>
+                            </entryRelationship>
+                            <entryRelationship typeCode="REFR">
+                                <substanceAdministration classCode="SBADM" moodCode="INT">
+                                    <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.2"/>
+                                    <id extension="21901489" root="1.21.1"/>
+                                    <statusCode code="active"/>
+                                    <effectiveTime xsi:type="IVL_TS">
+                                        <low nullFlavor="UNK"/>
+                                        <high nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                        <period value="8" unit="h"/>
+                                    </effectiveTime>
+                                    <doseQuantity>
+                                        <low value="13" unit="ΚΑΨΟΥΛΑ"/>
+                                        <high value="13" unit="ΚΑΨΟΥΛΑ"/>
+                                    </doseQuantity>
+                                    <rateQuantity>
+                                        <low value="8" unit="d"/>
+                                        <high value="8" unit="d"/>
+                                    </rateQuantity>
+                                    <consumable>
+                                        <manufacturedProduct classCode="MANU">
+                                            <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.1"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                            <manufacturedMaterial>
+                                                <code code="267670202" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)">
+                                                    <originalText>
+                                                        <reference value="#med_barcode_2"/>
+                                                    </originalText>
+                                                </code>
+                                                <name>NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)</name>
+                                                <epsos:formCode code="CAPS" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="CAPS"/>
+                                                <epsos:asContent classCode="CONT">
+                                                    <epsos:containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                                                        <epsos:name>NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)</epsos:name>
+                                                        <epsos:formCode code="BTx30_(BLIST_3x10)" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="BTx30_(BLIST_3x10)"/>
+                                                        <epsos:capacityQuantity value="30"/>
+                                                        <epsos:capTypeCode nullFlavor="NA"/>
+                                                    </epsos:containerPackagedMedicine>
+                                                </epsos:asContent>
+                                                <epsos:ingredient classCode="ACTI">
+                                                    <epsos:quantity>
+                                                        <epsos:numerator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                                        <epsos:denominator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                                    </epsos:quantity>
+                                                    <epsos:ingredient classCode="MMAT" determinerCode="KIND">
+                                                        <epsos:code code="INEOF00344" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="AMLODIPINE BESYLATE"/>
+                                                        <epsos:name>AMLODIPINE BESYLATE</epsos:name>
+                                                    </epsos:ingredient>
+                                                </epsos:ingredient>
+                                            </manufacturedMaterial>
+                                        </manufacturedProduct>
+                                    </consumable>
+                                    <entryRelationship typeCode="COMP">
+                                        <supply classCode="SPLY" moodCode="RQO">
+                                            <independentInd value="false"/>
+                                            <quantity value="2" unit="1"/>
+                                        </supply>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="SPRT">
+                                		<act classCode="ACT" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.12.301"/>
+                                    		<id extension="10" root="1.4.17"/>
+                                    		<id extension="10" root="1.4.18"/>
+                                    		<id extension="0" root="1.4.19"/>
+                                    		<id extension="0.634" root="1.4.20"/>
+                                    		<id extension="-0.75" root="1.4.21"/>
+                                    		<id extension="2.55" root="1.4.21.1"/>
+                                    		<id extension="0" root="1.4.22"/>
+                                    		<id extension="0" root="1.4.23"/>
+                                    		<id extension="0" root="1.9.6.2"/>
+                                        </act>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="SPRT">
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <id extension="1" root="2.10.8"/>
+                                            <id extension="9.21" root="2.10.9"/>
+                                            <id extension="9.21" root="2.10.11"/>
+                                            <id extension="9.21" root="2.10.10"/>
+                                            <id extension="150411392746" root="2.10.12"/>
+                                            <code nullFlavor="NA"/>
+                                            <effectiveTime value="20150407093511"/>
+                                        </act>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="SPRT">
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <id extension="1" root="2.10.8"/>
+                                            <id extension="9.21" root="2.10.9"/>
+                                            <id extension="9.21" root="2.10.11"/>
+                                            <id extension="9.21" root="2.10.10"/>
+                                            <id extension="150411392745" root="2.10.12"/>
+                                            <code nullFlavor="NA"/>
+                                            <effectiveTime value="20150407093511"/>
+                                        </act>
+                                    </entryRelationship>
+                                </substanceAdministration>
+                            </entryRelationship>
+                        </supply>
+                    </entry>
+                    <!-- Στοιχεία που αφορούν την δεύτερη ποσότητα της δεύτερης θεραπείας -->
+                    <entry>
+                        <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.2"/>
+                        <supply classCode="SPLY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.1.34"/>
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3"/>
+                            <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.3"/>
+                            <id extension="21901489" root="1.21.1"/>
+                            <quantity value="1" unit="1"/>
+                            <product>
+                                <manufacturedProduct classCode="MANU">
+                                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.1"/>
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <manufacturedMaterial>
+                                        <epsos:id root="1.3.6.1.4.1.12559.11.10.1.3.1.3.3"/>
+                                        <code code="267670202" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)">
+                                            <originalText>
+                                                <reference value="#med_barcode_2"/>
+                                            </originalText>
+                                        </code>
+                                        <name>NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)</name>
+                                        <epsos:formCode code="CAPS" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="CAPS"/>
+                                        <epsos:asContent classCode="CONT">
+                                            <epsos:containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                                                <epsos:name>NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)</epsos:name>
+                                                <epsos:formCode code="BTx30_(BLIST_3x10)" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="BTx30_(BLIST_3x10)"/>
+                                                <epsos:lotNumberText>150411392745</epsos:lotNumberText>
+                                                <epsos:capacityQuantity value="30"/>
+                                                <epsos:capTypeCode nullFlavor="NA"/>
+                                            </epsos:containerPackagedMedicine>
+                                        </epsos:asContent>
+                                        <epsos:ingredient classCode="ACTI">
+                                            <epsos:quantity>
+                                                <epsos:numerator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                                <epsos:denominator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                            </epsos:quantity>
+                                            <epsos:ingredient classCode="MMAT" determinerCode="KIND">
+                                                <epsos:code code="INEOF00344" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="AMLODIPINE BESYLATE"/>
+                                                <epsos:name>AMLODIPINE BESYLATE</epsos:name>
+                                            </epsos:ingredient>
+                                        </epsos:ingredient>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </product>
+                            <performer typeCode="PRF">
+                                <time value="20150407"/>
+                                <assignedEntity>
+                                    <id extension="11111" root="1.18.1"/>
+                                    <telecom use="MC" value="tel:+6900000000"/>
+                                    <telecom use="HP" value="mailto:test5@gmail.gr"/>
+                                    <assignedPerson>
+                                        <name>
+                                            <given>ΌνομαΦ</given>
+                                            <family>ΕπίθετοΦ</family>
+                                        </name>
+                                    </assignedPerson>
+                                    <representedOrganization>
+                                        <id extension="111111" root="1.18.1.1"/>
+                                        <name>TESTPHARM HDIKA</name>
+                                        <telecom use="MC" value="tel:+6900000000"/>
+                                        <addr>
+                                            <streetAddressLine>Διεύθυνση 5</streetAddressLine>
+                                            <city>Πόλη</city>
+                                            <postalCode>12345</postalCode>
+                                            <state nullFlavor="NI"/>
+                                            <country>GR</country>
+                                        </addr>
+                                    </representedOrganization>
+                                </assignedEntity>
+                            </performer>
+                            <participant typeCode="PRF">
+                                <participantRole classCode="LIC">
+                                    <id extension="11111" root="1.18.1"/>
+                                    <scopingEntity>
+                                        <id extension="1" root="1.5.2.1"/>
+                                        <desc>ΑΙΓΙΑΛΕΙΑΣ</desc>
+                                    </scopingEntity>
+                                </participantRole>
+                            </participant>
+                            <entryRelationship typeCode="SPRT">
+                                <act classCode="ACT" moodCode="EVN">
+                                    <id extension="1" root="2.10.8"/>
+                                    <id extension="9.21" root="2.10.9"/>
+                                    <id extension="9.21" root="2.10.11"/>
+                                    <id extension="9.21" root="2.10.10"/>
+                                    <code nullFlavor="NA"/>
+                                    <effectiveTime value="20150407093511"/>
+                                </act>
+                            </entryRelationship>
+                            <entryRelationship typeCode="REFR">
+                                <substanceAdministration classCode="SBADM" moodCode="INT">
+                                    <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                                    <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.2"/>
+                                    <id extension="21901489" root="1.21.1"/>
+                                    <statusCode code="active"/>
+                                    <effectiveTime xsi:type="IVL_TS">
+                                        <low nullFlavor="UNK"/>
+                                        <high nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                        <period value="8" unit="h"/>
+                                    </effectiveTime>
+                                    <doseQuantity>
+                                        <low value="13" unit="ΚΑΨΟΥΛΑ"/>
+                                        <high value="13" unit="ΚΑΨΟΥΛΑ"/>
+                                    </doseQuantity>
+                                    <rateQuantity>
+                                        <low value="8" unit="d"/>
+                                        <high value="8" unit="d"/>
+                                    </rateQuantity>
+                                    <consumable>
+                                        <manufacturedProduct classCode="MANU">
+                                            <templateId root="1.3.6.1.4.1.12559.11.10.1.3.1.3.1"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                            <manufacturedMaterial>
+                                                <code code="267670202" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)">
+                                                    <originalText>
+                                                        <reference value="#med_barcode_2"/>
+                                                    </originalText>
+                                                </code>
+                                                <name>NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)</name>
+                                                <epsos:formCode code="CAPS" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="CAPS"/>
+                                                <epsos:asContent classCode="CONT">
+                                                    <epsos:containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                                                        <epsos:name>NORVALET CAPS 10MG/CAP BTx30 (BLIST 3x10)</epsos:name>
+                                                        <epsos:formCode code="BTx30_(BLIST_3x10)" codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.1" codeSystemName="EDQM" displayName="BTx30_(BLIST_3x10)"/>
+                                                        <epsos:capacityQuantity value="30"/>
+                                                        <epsos:capTypeCode nullFlavor="NA"/>
+                                                    </epsos:containerPackagedMedicine>
+                                                </epsos:asContent>
+                                                <epsos:ingredient classCode="ACTI">
+                                                    <epsos:quantity>
+                                                        <epsos:numerator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                                        <epsos:denominator value="0" unit="0" xsi:type="epsos:PQ"/>
+                                                    </epsos:quantity>
+                                                    <epsos:ingredient classCode="MMAT" determinerCode="KIND">
+                                                        <epsos:code code="INEOF00344" codeSystem="0.0.0.0.0.0.0.0.0" codeSystemName="EOF" displayName="AMLODIPINE BESYLATE"/>
+                                                        <epsos:name>AMLODIPINE BESYLATE</epsos:name>
+                                                    </epsos:ingredient>
+                                                </epsos:ingredient>
+                                            </manufacturedMaterial>
+                                        </manufacturedProduct>
+                                    </consumable>
+                                    <entryRelationship typeCode="COMP">
+                                        <supply classCode="SPLY" moodCode="RQO">
+                                            <independentInd value="false"/>
+                                            <quantity value="2" unit="1"/>
+                                        </supply>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="SPRT">
+                                        <act classCode="ACT" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.12.301"/>
+                                    		<id extension="10" root="1.4.17"/>
+                                    		<id extension="10" root="1.4.18"/>
+                                    		<id extension="0" root="1.4.19"/>
+                                    		<id extension="0.634" root="1.4.20"/>
+                                    		<id extension="-0.75" root="1.4.21"/>
+                                    		<id extension="2.55" root="1.4.21.1"/>
+                                    		<id extension="0" root="1.4.22"/>
+                                    		<id extension="0" root="1.4.23"/>
+                                    		<id extension="0" root="1.9.6.2"/>
+                                            <code nullFlavor="NA"/>
+                                        </act>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="SPRT">
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <id extension="1" root="2.10.8"/>
+                                            <id extension="9.21" root="2.10.9"/>
+                                            <id extension="9.21" root="2.10.11"/>
+                                            <id extension="9.21" root="2.10.10"/>
+                                            <id extension="150411392746" root="2.10.12"/>
+                                            <code nullFlavor="NA"/>
+                                            <effectiveTime value="20150407093511"/>
+                                        </act>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="SPRT">
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <id extension="1" root="2.10.8"/>
+                                            <id extension="9.21" root="2.10.9"/>
+                                            <id extension="9.21" root="2.10.11"/>
+                                            <id extension="9.21" root="2.10.10"/>
+                                            <id extension="150411392745" root="2.10.12"/>
+                                            <code nullFlavor="NA"/>
+                                            <effectiveTime value="20150407093511"/>
+                                        </act>
+                                    </entryRelationship>
+                                    <!-- not in the documentation, added by actual response -->
+                                    <entryRelationship typeCode="REFR">
+                                        <act classCode="INFRM" moodCode="EVN">
+                                            <code nullFlavor="NA"/>
+                                            <entryRelationship typeCode="RSON">
+                                                <observation classCode="OBS" moodCode="EVN">
+                                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                    <code code="282291009"
+                                                          codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.42.23"
+                                                          codeSystemName="SNOMED-CT"
+                                                          displayName="Diagnosis interpretation"/>
+                                                    <text>Διπολική συναισθηματική διαταραχή</text>
+                                                    <statusCode code="completed"/>
+                                                    <value xsi:type="CD" code="F31"
+                                                           codeSystem="1.3.6.1.4.1.12559.11.10.1.3.1.44.2"
+                                                           codeSystemName="ICD10"
+                                                           displayName="Διπολική συναισθηματική διαταραχή"/>
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entryRelationship>
+                                </substanceAdministration>
+                            </entryRelationship>
+                        </supply>
+                    </entry>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>
